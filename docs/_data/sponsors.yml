@@ -1,0 +1,60 @@
+# Sponsor data for the home page.
+#
+# Schema for each entry:
+#   name:     Display name (string, required)
+#   url:      Sponsor's website (string, required)
+#   logo:     Path under /assets/images/sponsors/ (string, optional — falls back to text tile if missing)
+#   founding: true if the sponsor was one of the 8 founding members in 2019 (boolean, default false)
+#
+# The same sponsor can appear in `current` and have `founding: true` if they're still actively sponsoring.
+# Founding sponsors who are no longer active also remain in the founding list — recognition is permanent.
+
+founding:
+  - name: "Dashbit"
+    url: "https://dashbit.co/"
+    logo: ""
+  - name: "Enki multimedia"
+    url: "https://enkim.eu/"
+    logo: ""
+  - name: "Ericsson"
+    url: "https://www.ericsson.com/"
+    logo: ""
+  - name: "Erlang Solutions"
+    url: "https://www.erlang-solutions.com/"
+    logo: ""
+  - name: "Mainmatter"
+    url: "https://mainmatter.com/"
+    logo: ""
+  - name: "oTolo Networks"
+    url: "https://otolonetworks.com/"
+    logo: ""
+  - name: "Peer Stritzinger GmbH"
+    url: "https://stritzinger.com/"
+    logo: ""
+  - name: "TI Tokyo"
+    url: "https://ti-tokyo.co.uk/"
+    logo: ""
+
+# Current active sponsors — wall is rendered in this order. Add/remove freely; founding members
+# from the list above should also be present here (with `founding: true`) if they are actively sponsoring.
+current:
+  - { name: "Dashbit",            url: "https://dashbit.co/",              logo: "", founding: true  }
+  - { name: "Erlang Solutions",   url: "https://www.erlang-solutions.com/", logo: "", founding: true }
+  - { name: "TI Tokyo",           url: "https://ti-tokyo.co.uk/",          logo: "", founding: true  }
+  - { name: "Ericsson",           url: "https://www.ericsson.com/",        logo: "", founding: true  }
+  - { name: "Enki multimedia",    url: "https://enkim.eu/",                logo: "", founding: true  }
+  - { name: "oTolo Networks",     url: "https://otolonetworks.com/",       logo: "", founding: true  }
+  - { name: "Mainmatter",         url: "https://mainmatter.com/",          logo: "", founding: true  }
+  - { name: "Peer Stritzinger",   url: "https://stritzinger.com/",         logo: "", founding: true  }
+  - { name: "Wyeworks",           url: "https://www.wyeworks.com/",        logo: "" }
+  - { name: "Aleph Cloud",        url: "https://aleph.cloud/",             logo: "" }
+  - { name: "Daylite",            url: "https://www.daylite.com/",         logo: "" }
+  - { name: "Bitcrowd",           url: "https://bitcrowd.net/",            logo: "" }
+  - { name: "Pharos Production",  url: "https://pharosproduction.com/",    logo: "" }
+  - { name: "Herrmann Ultraschall", url: "https://www.herrmannultraschall.com/", logo: "" }
+  - { name: "Avassa",             url: "https://avassa.io/",               logo: "" }
+  - { name: "Shiguredo",          url: "https://shiguredo.jp/",            logo: "" }
+  - { name: "DNSimple",           url: "https://dnsimple.com/",            logo: "" }
+  - { name: "Leapsight",          url: "https://leapsight.com/",           logo: "" }
+  - { name: "EMQX",               url: "https://www.emqx.com/",            logo: "" }
+  - { name: "Plausible",          url: "https://plausible.io/",            logo: "" }
