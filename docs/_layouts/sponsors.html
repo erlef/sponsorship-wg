@@ -61,33 +61,33 @@ layout: default
   .sponsors-page .sponsor-tile {
     background: #fafbfc;
     border: 1px solid #e3e7ea;
-    border-radius: 6px;
-    height: 80px;
+    border-radius: 8px;
+    height: 130px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 12px;
+    padding: 22px;
     position: relative;
     text-decoration: none;
     color: #1f2c34;
     font-weight: 600;
-    font-size: 13px;
+    font-size: 15px;
     text-align: center;
   }
   .sponsors-page .sponsor-tile:hover { border-color: #1f2c34; text-decoration: none; }
   .sponsors-page .sponsor-tile img { max-width: 100%; max-height: 100%; }
   .sponsors-page .sponsor-tile__badge {
     position: absolute;
-    top: 4px;
-    right: 4px;
+    top: 6px;
+    right: 6px;
     background: #f59e0b;
     color: #111;
-    font-size: 9px;
+    font-size: 10px;
     font-weight: 700;
-    padding: 2px 5px;
-    border-radius: 3px;
+    padding: 3px 7px;
+    border-radius: 4px;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
   }
 
   .sponsors-page .badge-founding {
@@ -220,7 +220,7 @@ layout: default
               <a href="https://cna.erlef.org/" style="color: inherit; text-decoration: none;">CVE Numbering Authority &rarr;</a>
             </h3>
             <p style="font-size: 14px; color: #475560; line-height: 1.55; margin: 0;">
-              ERLEF is an authorized CNA for the BEAM ecosystem &mdash; we assign CVE identifiers, coordinate disclosure, and publish advisories for the Erlang, Elixir, and Gleam communities.
+              ERLEF is an authorized <a href="https://cna.erlef.org/">CNA</a> for the BEAM ecosystem &mdash; we assign <a href="https://cna.erlef.org/">CVE</a> identifiers, coordinate disclosure, and publish advisories for the Erlang, Elixir, and Gleam communities.
             </p>
           </div>
           <div style="font-size: 12px; color: #6b7780; font-style: italic; white-space: nowrap; align-self: flex-start;">
@@ -268,6 +268,10 @@ layout: default
             </thead>
             <tbody>
               <tr>
+                <td>Individual</td>
+                <td style="text-align: right;"><a href="https://www.every.org/erlef" class="tier-table__amount" style="text-decoration: none;">Your impact &rarr;</a></td>
+              </tr>
+              <tr>
                 <td>Under $1,000,000</td>
                 <td style="text-align: right;"><span class="tier-table__amount">$2,000</span><span class="tier-table__amount-note">or more</span></td>
               </tr>
@@ -301,7 +305,7 @@ layout: default
               Every sponsor &mdash; regardless of tier &mdash; funds the same work:
             </p>
             <ul style="font-size: 14px; color: #475560; line-height: 1.7; margin: 0; padding-left: 20px;">
-              <li>Security Working Group programs (Aegis, advisories)</li>
+              <li>Security Working Group programs (<a href="https://security.erlef.org/aegis/">Aegis</a>, <a href="https://cna.erlef.org/">CNA</a>)</li>
               <li>Working Group activities across the foundation</li>
               <li>Conference ticket &amp; travel grants</li>
               <li>Fellowships and contributor support</li>
@@ -326,9 +330,9 @@ layout: default
         Organizations that fund the foundation's work today.
       </p>
 
-      <div class="row" style="row-gap: 12px;">
+      <div class="row" style="row-gap: 16px;">
         {% for sponsor in site.data.sponsors.current %}
-          <div class="col-6 col-md-3 col-lg-2 mb-2">
+          <div class="col-6 col-md-4 col-lg-3 mb-3">
             <a class="sponsor-tile" href="{{ sponsor.url }}" rel="noopener" target="_blank">
               {% if sponsor.logo and sponsor.logo != "" %}
                 <img src="{{ '/assets/images/sponsors/' | append: sponsor.logo | relative_url }}" alt="{{ sponsor.name }}">
@@ -342,6 +346,15 @@ layout: default
           </div>
         {% endfor %}
       </div>
+
+      {% assign founders = site.data.sponsors.current | where: "founding", true %}
+      {% if founders.size > 0 %}
+        <p style="font-size: 13px; color: #6b7780; margin-top: 18px; line-height: 1.55;">
+          <span class="badge-founding" style="font-size: 9px; padding: 2px 6px; vertical-align: 1px; margin-right: 6px;">Founder</span>
+          marks the {{ founders.size }} organizations that chartered the Erlang Ecosystem Foundation in 2019:
+          {% for f in founders %}<a href="{{ f.url }}" style="color: #475560;">{{ f.name }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}.
+        </p>
+      {% endif %}
     </div>
   </section>
 
