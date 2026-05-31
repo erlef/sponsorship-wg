@@ -292,4 +292,140 @@ layout: default
     </div>
   </section>
 
+  <!-- 4. CURRENT SPONSORS WALL =========================================== -->
+  <section class="section-band--white" style="padding-top: 0;">
+    <div class="container">
+      <h2 style="font-size: 28px; font-weight: 700; color: #1f2c34; margin-bottom: 4px;">
+        Our sponsors
+      </h2>
+      <p style="font-size: 14px; color: #475560; margin-bottom: 22px;">
+        Organizations that fund the foundation's work today.
+      </p>
+
+      <div class="row" style="row-gap: 12px;">
+        {% for sponsor in site.data.sponsors.current %}
+          <div class="col-6 col-md-3 col-lg-2 mb-2">
+            <a class="sponsor-tile" href="{{ sponsor.url }}" rel="noopener" target="_blank">
+              {% if sponsor.logo and sponsor.logo != "" %}
+                <img src="{{ '/assets/images/sponsors/' | append: sponsor.logo | relative_url }}" alt="{{ sponsor.name }}">
+              {% else %}
+                {{ sponsor.name }}
+              {% endif %}
+              {% if sponsor.founding %}
+                <span class="sponsor-tile__badge" title="Founding member of the EEF">Founder</span>
+              {% endif %}
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. FOUNDING SPONSORS =============================================== -->
+  <section class="section-band--accent">
+    <div class="container">
+      <div style="margin-bottom: 8px;">
+        <span class="badge-founding">Founding members</span>
+      </div>
+      <h2 style="font-size: 28px; font-weight: 700; color: #1f2c34; margin-bottom: 8px;">
+        The organizations that started the foundation.
+      </h2>
+      <p style="font-size: 15px; color: #475560; margin-bottom: 22px; max-width: 720px;">
+        In 2019, eight organizations chartered the Erlang Ecosystem Foundation. Their initial commitment made every program on this page possible.
+      </p>
+
+      <div class="row" style="row-gap: 12px;">
+        {% for sponsor in site.data.sponsors.founding %}
+          <div class="col-6 col-md-3 mb-2">
+            <a class="sponsor-tile" href="{{ sponsor.url }}" rel="noopener" target="_blank" style="background: #fff;">
+              {% if sponsor.logo and sponsor.logo != "" %}
+                <img src="{{ '/assets/images/sponsors/' | append: sponsor.logo | relative_url }}" alt="{{ sponsor.name }}">
+              {% else %}
+                {{ sponsor.name }}
+              {% endif %}
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. INDIVIDUAL DONATE =============================================== -->
+  <section class="section-band--dark text-center">
+    <div class="container">
+      <div style="max-width: 720px; margin: 0 auto;">
+        <div class="text-eyebrow text-eyebrow--on-dark" style="margin-bottom: 12px;">Not a company?</div>
+        <h2 style="font-size: 26px; font-weight: 700; margin-bottom: 12px;">
+          Individual contributions fund the same work.
+        </h2>
+        <p style="font-size: 15px; opacity: 0.9; margin-bottom: 22px;">
+          One-time or recurring. The foundation is a 501(c)(3); contributions are tax-deductible where applicable.
+        </p>
+        <a class="btn btn-amber" href="https://www.every.org/erlef" style="padding: 14px 26px;">
+          Donate via every.org
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. COMMON QUESTIONS ================================================ -->
+  <section class="section-band--white">
+    <div class="container">
+      <h2 style="font-size: 28px; font-weight: 700; color: #1f2c34; margin-bottom: 22px;">
+        Common questions
+      </h2>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <div class="card-flat" style="padding: 18px; background: #fafbfc;">
+            <h3 style="font-size: 15px; font-weight: 700; color: #1f2c34; margin-bottom: 6px;">
+              Is my contribution tax-deductible?
+            </h3>
+            <p style="font-size: 14px; color: #475560; line-height: 1.55; margin: 0;">
+              The Erlang Ecosystem Foundation is a 501(c)(3) registered in the United States. Contributions are tax-deductible where applicable; treatment varies by jurisdiction.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <div class="card-flat" style="padding: 18px; background: #fafbfc;">
+            <h3 style="font-size: 15px; font-weight: 700; color: #1f2c34; margin-bottom: 6px;">
+              How do I become a sponsor?
+            </h3>
+            <p style="font-size: 14px; color: #475560; line-height: 1.55; margin: 0;">
+              Email <a href="mailto:sponsorship@erlef.org">sponsorship@erlef.org</a>. We'll confirm your tier and onboard you.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <div class="card-flat" style="padding: 18px; background: #fafbfc;">
+            <h3 style="font-size: 15px; font-weight: 700; color: #1f2c34; margin-bottom: 6px;">
+              Can we sponsor a specific Working Group?
+            </h3>
+            <p style="font-size: 14px; color: #475560; line-height: 1.55; margin: 0;">
+              Yes &mdash; earmarked contributions above the minimum can be directed to a specific WG or program. Mention this when you reach out.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <div class="card-flat" style="padding: 18px; background: #fafbfc;">
+            <h3 style="font-size: 15px; font-weight: 700; color: #1f2c34; margin-bottom: 6px;">
+              Where does the money go?
+            </h3>
+            <p style="font-size: 14px; color: #475560; line-height: 1.55; margin: 0;">
+              Working Group programs, grants, events, and operations. See our <a href="https://erlef.org/public_records/">public records</a> for the full breakdown.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 24px;">
+        <a class="btn btn-amber" href="mailto:sponsorship@erlef.org" style="padding: 12px 24px;">
+          Become a Sponsor &rarr;
+        </a>
+        <a class="btn" href="https://www.every.org/erlef" style="padding: 12px 24px; border: 1px solid #1f2c34; color: #1f2c34; margin-left: 8px;">
+          Donate
+        </a>
+      </div>
+    </div>
+  </section>
+
 </div>
