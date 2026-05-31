@@ -4,6 +4,10 @@ layout: default
 
 <style>
   /* Scoped to the sponsors page only via .sponsors-page wrapper. */
+  /* Defensive overflow guard: the EEF theme's navbar lacks a small-viewport collapse
+     and can force the body wider than the viewport on phones. */
+  body { overflow-x: hidden; }
+  .sponsors-page { overflow-x: hidden; }
   .sponsors-page .text-eyebrow {
     font-size: 12px;
     letter-spacing: 0.12em;
@@ -128,6 +132,22 @@ layout: default
   .sponsors-page .tier-table tbody tr:last-child td { border-bottom: 0; }
   .sponsors-page .tier-table__amount { color: #1f2c34; font-weight: 600; }
   .sponsors-page .tier-table__amount-note { color: #6b7780; font-size: 12px; margin-left: 4px; }
+
+  /* Responsive adjustments below the Bootstrap md breakpoint (< 768px). */
+  @media (max-width: 767px) {
+    .sponsors-page h1 { font-size: 32px !important; line-height: 1.18 !important; }
+    .sponsors-page h2 { font-size: 24px !important; }
+    .sponsors-page .section-band--dark,
+    .sponsors-page .section-band--light,
+    .sponsors-page .section-band--white,
+    .sponsors-page .section-band--accent { padding: 44px 0; }
+    .sponsors-page .tier-table { font-size: 13px; }
+    .sponsors-page .tier-table thead th { padding: 10px 10px; font-size: 10px; }
+    .sponsors-page .tier-table td { padding: 11px 10px; }
+    .sponsors-page .tier-table__amount-note { display: block; margin-left: 0; font-size: 11px; }
+    .sponsors-page .stat-strip { gap: 20px; }
+    .sponsors-page .stat-strip__value { font-size: 22px; }
+  }
 </style>
 
 <div class="sponsors-page">
