@@ -1,6 +1,6 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
-layout: home
+layout: sponsors
+title: Support the Erlang Ecosystem Foundation
+description: Sponsorship powers our working groups, security advisories, and the events the BEAM community runs on.
+permalink: /
 ---
