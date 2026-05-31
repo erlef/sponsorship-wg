@@ -1,0 +1,28 @@
+title: EEF Sponsorship WG
+description: Documentation, specifications and code from the Sponsorship Working Group of the Erlang Ecosystem Foundation
+url: "http://sponsor.erlef.org"
+twitter_username: TheErlef
+remote_theme: erlef/eef-jekyll-theme@v0.2.0
+repository: erlef/sponsorship-wg
+markdown: kramdown
+plugins:
+  - jekyll-remote-theme
+  - jekyll-feed
+  - jekyll-sitemap
+
+collections:
+  articles:
+    output: false
+    sort_by: date
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
