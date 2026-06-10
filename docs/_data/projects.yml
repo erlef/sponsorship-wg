@@ -1,0 +1,86 @@
+# Sponsored projects & programs.
+#
+# Schema:
+#   name:           Display name (string, required)
+#   url:            Project / program homepage (string, required)
+#   working_group:  Sponsoring WG label (string, required) — shown as the small amber eyebrow
+#   wg_url:         Link target for the WG label (string, optional)
+#   summary:        Short blurb (~20-30 words) — shown on the sponsors-page 2x3 card grid
+#   description:    Longer blurb (1-3 sentences) — shown on the /projects/ wells page
+#
+# The first 6 entries appear on the home page (sponsors page) as a 2x3 card grid.
+# The full list appears on /projects/ as stacked full-width wells.
+# Reorder freely; the top 6 are the page's headline programs.
+
+projects:
+  - name: "Aegis"
+    url: "https://security.erlef.org/aegis/"
+    working_group: "Security Working Group"
+    wg_url: "https://erlef.org/wg/security"
+    summary: "Vulnerability-disclosure platform for the BEAM ecosystem — coordinated reporting, advisories, and a public registry."
+    description: "An open vulnerability-disclosure platform for the BEAM ecosystem. Coordinated reporting, advisories, and a public registry for the languages and libraries the community depends on."
+
+  - name: "CVE Numbering Authority"
+    url: "https://cna.erlef.org/"
+    working_group: "Security Working Group"
+    wg_url: "https://erlef.org/wg/security"
+    summary: |
+      ERLEF is an authorized CNA — we assign CVE identifiers and coordinate disclosure for Erlang, Elixir, and Gleam.
+    description: |
+      ERLEF is an authorized CNA for the BEAM ecosystem. We assign CVE identifiers, coordinate disclosure, and publish advisories for the Erlang, Elixir, and Gleam communities.
+
+  - name: "Conference grants"
+    url: "https://erlef.org/wg/sponsorship"
+    working_group: "Community"
+    wg_url: "https://erlef.org/wg/sponsorship"
+    summary: |
+      Tickets and travel support for engineers who'd otherwise miss CodeBEAM, ElixirConf, EUC, and other community events.
+    description: |
+      Tickets and travel support for engineers who'd otherwise miss CodeBEAM, ElixirConf, EUC, and other community events. Grants are reviewed on an ongoing basis.
+
+  - name: "EEF Fellows"
+    url: "https://erlef.org/wg/fellowship"
+    working_group: "Fellowship Working Group"
+    wg_url: "https://erlef.org/wg/fellowship"
+    summary:
+      Formal recognition for community members who've made sustained, exceptional contributions to the BEAM ecosystem.
+    description: |
+      Formal recognition for community members who've made sustained, exceptional contributions to the BEAM ecosystem, nominated and approved according to the Erlang Ecosystem Foundation bylaws.
+
+  - name: "Hex.pm supply-chain security"
+    url: "https://erlef.org/wg/security"
+    working_group: "Security Working Group"
+    wg_url: "https://erlef.org/wg/security"
+    summary: |
+      Audits, hardening, and tooling to keep the Hex package repository trustworthy for production use.
+    description: |
+      Ongoing security work on the Hex package repository — audits, supply-chain hardening, and tooling that keeps Hex trustworthy as the BEAM ecosystem's default package source.
+
+  - name: "BEAM hardening guidelines"
+    url: "https://erlef.org/wg/security"
+    working_group: "Security Working Group"
+    wg_url: "https://erlef.org/wg/security"
+    summary: |
+      Reference documentation and secure-coding guidance for production BEAM deployments."
+    description: |
+      Reference documentation, secure-coding guidance, and operational hardening recommendations for teams running BEAM applications in production.
+
+  # Projects below appear only on the full /projects/ page (positions 7+).
+
+  - name: "Vulnerability Disclosure Program"
+    url: "https://erlef.org/wg/security"
+    working_group: "Security Working Group"
+    wg_url: "https://erlef.org/wg/security"
+    summary: |
+      Templates, processes, and tooling that ecosystem maintainers can adopt to handle reports responsibly.
+    description: |
+      Templates, processes, and tooling that ecosystem maintainers can adopt to handle vulnerability reports responsibly — the foundations on which Aegis and the CNA program operate.
+
+  - name: "Code-signing reference implementation"
+    url: "https://erlef.org/wg/security"
+    working_group: "Security Working Group"
+    wg_url: "https://erlef.org/wg/security"
+    summary: |
+      A reference implementation for signing releases produced by the BEAM toolchain.
+    description: |
+      A reference implementation for signing releases produced by the BEAM toolchain — making it easier for library authors and operators to verify package provenance.

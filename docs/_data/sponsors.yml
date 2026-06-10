@@ -4,29 +4,114 @@
 #   name:     Display name (string, required)
 #   url:      Sponsor's website (string, required)
 #   logo:     File under /assets/images/sponsors/ (string, optional — falls back to text tile if missing)
-#   founding: true if the sponsor was one of the 8 founding members in 2019 (boolean, default false)
-#
-# Founding sponsors that are also active sponsors appear in `current` with `founding: true`;
-# the FOUNDER badge on their tile is the page's only founding-member recognition.
 
-current:
-  - { name: "Ericsson",             url: "https://www.ericsson.com/",        logo: "ericsson-logo.png",       founding: true }
-  - { name: "Peer Stritzinger",     url: "https://stritzinger.com/",         logo: "peer-logo.png",           founding: true }
-  - { name: "TI Tokyo",             url: "https://ti-tokyo.co.uk/",          logo: "tiot-logo.png",           founding: true }
-  - { name: "Mainmatter",           url: "https://mainmatter.com/",          logo: "mainmatter-logo.png",     founding: true }
-  - { name: "Enki multimedia",      url: "https://enkim.eu/",                logo: "enki-logo.png",           founding: true }
-  - { name: "oTolo Networks",       url: "https://otolonetworks.com/",       logo: "otolo-logo.png",          founding: true }
-  - { name: "Dashbit",              url: "https://dashbit.co/",              logo: "dashbit-logo.png",        founding: true }
-  - { name: "Erlang Solutions",     url: "https://www.erlang-solutions.com/", logo: "esl-logo.png",           founding: true }
-  - { name: "Wyeworks",             url: "https://www.wyeworks.com/",        logo: "wyeworks-logo.png" }
-  - { name: "Aleph Cloud",          url: "https://aleph.cloud/",             logo: "aleph.png" }
-  - { name: "Shiguredo",            url: "https://shiguredo.jp/",            logo: "shiguredo-logo.svg" }
-  - { name: "Pharos Production",    url: "https://pharosproduction.com/",    logo: "pharos-logo.png" }
-  - { name: "Avassa",               url: "https://avassa.io/",               logo: "avassa-logo.png" }
-  - { name: "Leapsight",            url: "https://leapsight.com/",           logo: "leapsight-logo.png" }
-  - { name: "Daylite",              url: "https://www.daylite.com/",         logo: "daylite-logo.png" }
-  - { name: "Bitcrowd",             url: "https://bitcrowd.net/",            logo: "bitcrowd-logo.png" }
-  - { name: "Plausible",            url: "https://plausible.io/",            logo: "plausible-logo.png" }
-  - { name: "Herrmann Ultraschall", url: "https://www.herrmannultraschall.com/", logo: "herrmann-ultraschall.png" }
-  - { name: "EMQX",                 url: "https://www.emqx.com/",            logo: "emq-logo.png" }
-  - { name: "DNSimple",             url: "https://dnsimple.com/",            logo: "dnsimple-logo.png" }
+current_sponsors:
+  - name: "Aleph Cloud"
+    url: "https://aleph.cloud/"
+    logo: "aleph.png"
+
+  - name: "Avassa"
+    url: "https://avassa.io/"
+    logo: "avassa-logo.png"
+
+  - name: "Bitcrowd"
+    url: "https://bitcrowd.net/"
+    logo: "bitcrowd-logo.png"
+
+  - name: "DNSimple"
+    url: "https://dnsimple.com/"
+    logo: "dnsimple-logo.png"
+
+  - name: "Dashbit"
+    url: "https://dashbit.co/"
+    logo: "dashbit-logo.png"
+
+  - name: "Daylite"
+    url: "https://www.daylite.com/"
+    logo: "daylite-logo.png"
+
+  - name: "EMQX"
+    url: "https://www.emqx.com/"
+    logo: "emq-logo.png"
+
+  - name: "Enki multimedia"
+    url: "https://enkim.eu/"
+    logo: "enki-logo.png"
+
+  - name: "Ericsson"
+    url: "https://www.ericsson.com/"
+    logo: "ericsson-logo.png"
+
+  - name: "Erlang Solutions"
+    url: "https://www.erlang-solutions.com/"
+    logo: "esl-logo.png"
+
+  - name: "Herrmann Ultraschall"
+    url: "https://www.herrmannultraschall.com/"
+    logo: "herrmann-ultraschall.png"
+
+  - name: "Leapsight"
+    url: "https://leapsight.com/"
+    logo: "leapsight-logo.png"
+
+  - name: "Peer Stritzinger"
+    url: "https://stritzinger.com/"
+    logo: "peer-logo.png"
+
+  - name: "Pharos Production"
+    url: "https://pharosproduction.com/"
+    logo: "pharos-logo.png"
+
+  - name: "Plausible"
+    url: "https://plausible.io/"
+    logo: "plausible-logo.png"
+
+  - name: "Shiguredo"
+    url: "https://shiguredo.jp/"
+    logo: "shiguredo-logo.svg"
+
+  - name: "TI Tokyo"
+    url: "https://ti-tokyo.co.uk/"
+    logo: "tiot-logo.png"
+
+  - name: "Wyeworks"
+    url: "https://www.wyeworks.com/"
+    logo: "wyeworks-logo.png"
+
+  - name: "oTolo Networks"
+    url: "https://otolonetworks.com/"
+    logo: "otolo-logo.png"
+
+
+founding_sponsors:
+  - name: "Dashbit"
+    url: "https://dashbit.co/"
+    logo: "dashbit-logo.png"
+
+  - name: "Enki multimedia"
+    url: "https://enkim.eu/"
+    logo: "enki-logo.png"
+
+  - name: "Ericsson"
+    url: "https://www.ericsson.com/"
+    logo: "ericsson-logo.png"
+
+  - name: "Erlang Solutions"
+    url: "https://www.erlang-solutions.com/"
+    logo: "esl-logo.png"
+
+  - name: "Mainmatter"
+    url: "https://mainmatter.com/"
+    logo: "mainmatter-logo.png"
+
+  - name: "Peer Stritzinger"
+    url: "https://stritzinger.com/"
+    logo: "peer-logo.png"
+
+  - name: "TI Tokyo"
+    url: "https://ti-tokyo.co.uk/"
+    logo: "tiot-logo.png"
+
+  - name: "oTolo Networks"
+    url: "https://otolonetworks.com/"
+    logo: "otolo-logo.png"

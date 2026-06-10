@@ -12,10 +12,14 @@ layout: default
     font-size: 12px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #6b7780;
+    color: #5a6670;
     margin-bottom: 6px;
   }
-  .sponsors-page .text-eyebrow--amber { color: #f59e0b; font-weight: 700; }
+  /* Amber for use as TEXT on light backgrounds — darker than the brand amber
+     to meet WCAG AA contrast (≥4.5:1 on white / #f8f9fa / #fafbfc).
+     Bright #f59e0b is reserved for button fills (where it's a background)
+     and for eyebrows on the dark band (.audience-half__eyebrow, .faq-item__eyebrow). */
+  .sponsors-page .text-eyebrow--amber { color: #b45309; font-weight: 700; }
   .sponsors-page .text-eyebrow--on-dark { color: rgba(255, 255, 255, 0.7); }
 
   .sponsors-page .btn-amber {
@@ -38,26 +42,6 @@ layout: default
   .sponsors-page .section-band--accent { background: #fafbfc; padding: 64px 0; }
   .sponsors-page .section-band--dark { background: #1f2c34; color: #fff; padding: 64px 0; }
 
-  .sponsors-page .card-flat {
-    background: #fff;
-    border: 1px solid #e3e7ea;
-    border-radius: 8px;
-  }
-
-  .sponsors-page .stat-strip {
-    display: flex;
-    gap: 32px;
-    justify-content: center;
-    flex-wrap: wrap;
-    border-top: 1px solid #2d3e4a;
-    padding-top: 20px;
-    margin-top: 10px;
-  }
-  .sponsors-page .stat-strip__value { font-size: 28px; font-weight: 700; line-height: 1; }
-  .sponsors-page .stat-strip__label {
-    font-size: 11px; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px;
-  }
-
   .sponsors-page .sponsor-tile {
     background: #fafbfc;
     border: 1px solid #e3e7ea;
@@ -76,19 +60,6 @@ layout: default
   }
   .sponsors-page .sponsor-tile:hover { border-color: #1f2c34; text-decoration: none; }
   .sponsors-page .sponsor-tile img { max-width: 100%; max-height: 100%; }
-  .sponsors-page .sponsor-tile__badge {
-    position: absolute;
-    top: 6px;
-    right: 6px;
-    background: #f59e0b;
-    color: #111;
-    font-size: 10px;
-    font-weight: 700;
-    padding: 3px 7px;
-    border-radius: 4px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
 
   .sponsors-page .badge-founding {
     background: #f59e0b;
@@ -107,6 +78,119 @@ layout: default
     border: 1px solid #e3e7ea;
     border-radius: 8px;
     padding: 24px;
+  }
+
+  /* Audience-split pair (Company / Individual) — styled like the hero, not as cards.
+     Sits directly on the dark band with a subtle vertical divider between halves. */
+  .sponsors-page .audience-half {
+    padding: 8px 4px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+  }
+  .sponsors-page .audience-half__eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #f59e0b;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .sponsors-page .audience-half__title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 12px;
+    line-height: 1.22;
+  }
+  .sponsors-page .audience-half__body {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.6;
+    margin: 0 0 22px;
+    flex-grow: 1;
+  }
+  .sponsors-page .audience-half__ctas {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .sponsors-page .audience-half__ctas .btn { padding: 11px 20px; font-weight: 600; }
+
+  /* Vertical divider between the two halves on md+ viewports only. */
+  @media (min-width: 768px) {
+    .sponsors-page .audience-split > .col-md-6:first-child {
+      border-right: 1px solid rgba(255, 255, 255, 0.12);
+      padding-right: 36px;
+    }
+    .sponsors-page .audience-split > .col-md-6:last-child {
+      padding-left: 36px;
+    }
+  }
+
+  /* FAQ item — sits directly on the dark section band, mirroring the audience-split's
+     bare-content-on-dark treatment. No card chrome, just typographic structure. */
+  .sponsors-page .faq-item {
+    padding: 8px 4px;
+    height: 100%;
+  }
+  .sponsors-page .faq-item__eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #f59e0b;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .sponsors-page .faq-item__question {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 10px;
+    line-height: 1.3;
+  }
+  .sponsors-page .faq-item__answer {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.6;
+    margin: 0;
+  }
+  .sponsors-page .faq-item__answer a { color: #fbbf24; }
+  .sponsors-page .faq-item__answer a:hover { color: #fcd34d; }
+
+  /* Project card used in the home-page 2x3 grid. */
+  .sponsors-page .project-card {
+    background: #fff;
+    border: 1px solid #e3e7ea;
+    border-radius: 8px;
+    padding: 20px 22px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .sponsors-page .project-card__title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1f2c34;
+    margin: 0 0 8px;
+  }
+  .sponsors-page .project-card__title a { color: inherit; text-decoration: none; }
+  .sponsors-page .project-card__title a:hover { text-decoration: underline; }
+  .sponsors-page .project-card__summary {
+    font-size: 13px;
+    color: #475560;
+    line-height: 1.55;
+    margin: 0 0 14px;
+    flex-grow: 1;
+  }
+  .sponsors-page .project-card__footer {
+    font-size: 11px;
+    color: #5a6670;
+    font-style: italic;
+    padding-top: 10px;
+    border-top: 1px solid #f0f2f4;
+    margin-top: auto;
   }
 
   .sponsors-page .tier-table {
@@ -131,7 +215,34 @@ layout: default
   .sponsors-page .tier-table tbody tr:nth-child(even) { background: #fafbfc; }
   .sponsors-page .tier-table tbody tr:last-child td { border-bottom: 0; }
   .sponsors-page .tier-table__amount { color: #1f2c34; font-weight: 600; }
-  .sponsors-page .tier-table__amount-note { color: #6b7780; font-size: 12px; margin-left: 4px; }
+  .sponsors-page .tier-table__amount-note { color: #5a6670; font-size: 12px; margin-left: 4px; }
+
+  /* Accessibility: visible focus indicators on all interactive elements.
+     Default browser focus rings disappear on the dark band — we render an
+     explicit amber outline that contrasts against both light and dark surfaces.
+     :focus-visible scopes this to keyboard navigation, so mouse users don't
+     see the ring on click. */
+  .sponsors-page a:focus-visible,
+  .sponsors-page button:focus-visible,
+  .sponsors-page .btn:focus-visible,
+  .sponsors-page .sponsor-tile:focus-visible {
+    outline: 2px solid #f59e0b;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  /* On the dark band, lift the outline color to the brighter amber-400 so it's
+     clearly visible against the deep teal background. */
+  .sponsors-page .section-band--dark a:focus-visible,
+  .sponsors-page .section-band--dark .btn:focus-visible {
+    outline-color: #fbbf24;
+    outline-offset: 4px;
+  }
+
+  /* Respect users who prefer reduced motion — disable smooth-scroll and
+     any transitions on interactive elements. */
+  @media (prefers-reduced-motion: reduce) {
+    .sponsors-page * { transition: none !important; scroll-behavior: auto !important; }
+  }
 
   /* Responsive adjustments below the Bootstrap md breakpoint (< 768px). */
   @media (max-width: 767px) {
@@ -145,8 +256,6 @@ layout: default
     .sponsors-page .tier-table thead th { padding: 10px 10px; font-size: 10px; }
     .sponsors-page .tier-table td { padding: 11px 10px; }
     .sponsors-page .tier-table__amount-note { display: block; margin-left: 0; font-size: 11px; }
-    .sponsors-page .stat-strip { gap: 20px; }
-    .sponsors-page .stat-strip__value { font-size: 22px; }
   }
 </style>
 
@@ -166,23 +275,10 @@ layout: default
         <a class="btn btn-amber" href="#how-sponsorship-works" style="padding: 12px 24px;">
           Become a Sponsor &rarr;
         </a>
-        <a class="btn btn-outline-on-dark" href="https://www.every.org/erlang-ecosystem-foundation-inc" style="padding: 12px 24px;">
-          Donate
+
+        <a class="btn btn-amber" href="https://members.erlef.org/join-us" style="padding: 12px 24px;">
+          Become a member &rarr;
         </a>
-      </div>
-      <div class="stat-strip">
-        <div>
-          <div class="stat-strip__value">13</div>
-          <div class="stat-strip__label">Working Groups</div>
-        </div>
-        <div>
-          <div class="stat-strip__value">{{ site.data.sponsors.current | size }}+</div>
-          <div class="stat-strip__label">Current Sponsors</div>
-        </div>
-        <div>
-          <div class="stat-strip__value">{{ site.data.sponsors.current | where: "founding", true | size }}</div>
-          <div class="stat-strip__label">Founding Members</div>
-        </div>
       </div>
     </div>
   </section>
@@ -195,58 +291,67 @@ layout: default
         The work your support funds.
       </h2>
 
-      <div class="card-flat" style="padding: 22px 26px; margin-bottom: 14px;">
-        <div style="display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
-          <div style="flex: 1; min-width: 280px;">
-            <div class="text-eyebrow text-eyebrow--amber" style="margin-bottom: 6px;">Security Working Group</div>
-            <h3 style="font-size: 20px; font-weight: 700; color: #1f2c34; margin-bottom: 6px;">
-              <a href="https://security.erlef.org/aegis/" style="color: inherit; text-decoration: none;">Aegis &rarr;</a>
-            </h3>
-            <p style="font-size: 14px; color: #475560; line-height: 1.55; margin: 0;">
-              An open vulnerability-disclosure platform for the BEAM ecosystem &mdash; coordinated reporting, advisories, and a public registry for the languages and libraries the community depends on.
-            </p>
+      <div class="row" style="row-gap: 16px;">
+        {% for project in site.data.projects.projects limit: 6 %}
+          <div class="col-12 col-sm-6 col-md-4 mb-3">
+            <div class="project-card">
+              <div class="text-eyebrow text-eyebrow--amber" style="margin-bottom: 6px;">
+                {% if project.wg_url %}<a href="{{ project.wg_url }}" style="color: inherit; text-decoration: none;">{{ project.working_group }}</a>{% else %}{{ project.working_group }}{% endif %}
+              </div>
+              <h3 class="project-card__title">
+                <a href="{{ project.url }}">{{ project.name }} &rarr;</a>
+              </h3>
+              <p class="project-card__summary">{{ project.summary }}</p>
+              <div class="project-card__footer">Made possible by our sponsors.</div>
+            </div>
           </div>
-          <div style="font-size: 12px; color: #6b7780; font-style: italic; white-space: nowrap; align-self: flex-start;">
-            Made possible by our sponsors.
-          </div>
-        </div>
+        {% endfor %}
       </div>
 
-      <div class="card-flat" style="padding: 22px 26px; margin-bottom: 14px;">
-        <div style="display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
-          <div style="flex: 1; min-width: 280px;">
-            <div class="text-eyebrow text-eyebrow--amber" style="margin-bottom: 6px;">Security Working Group</div>
-            <h3 style="font-size: 20px; font-weight: 700; color: #1f2c34; margin-bottom: 6px;">
-              <a href="https://cna.erlef.org/" style="color: inherit; text-decoration: none;">CVE Numbering Authority &rarr;</a>
-            </h3>
-            <p style="font-size: 14px; color: #475560; line-height: 1.55; margin: 0;">
-              ERLEF is an authorized <a href="https://cna.erlef.org/">CNA</a> for the BEAM ecosystem &mdash; we assign <a href="https://cna.erlef.org/">CVE</a> identifiers, coordinate disclosure, and publish advisories for the Erlang, Elixir, and Gleam communities.
-            </p>
-          </div>
-          <div style="font-size: 12px; color: #6b7780; font-style: italic; white-space: nowrap; align-self: flex-start;">
-            Made possible by our sponsors.
-          </div>
-        </div>
-      </div>
+      <p style="margin-top: 12px; font-size: 14px;">
+        <a href="{{ '/projects/' | relative_url }}" style="color: #1f2c34; font-weight: 600;">See all sponsored projects &rarr;</a>
+      </p>
+    </div>
+  </section>
 
-      <div class="card-flat" style="padding: 22px 26px;">
-        <div style="display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
-          <div style="flex: 1; min-width: 280px;">
-            <div class="text-eyebrow text-eyebrow--amber" style="margin-bottom: 6px;">Community</div>
-            <h3 style="font-size: 20px; font-weight: 700; color: #1f2c34; margin-bottom: 6px;">Conference grants</h3>
-            <p style="font-size: 14px; color: #475560; line-height: 1.55; margin: 0;">
-              Tickets and travel support for engineers who'd otherwise miss CodeBEAM, ElixirConf, EUC, and other community events.
+  <!-- 3 AUDIENCE SPLIT (Company / Individual) ========================== -->
+  <section class="section-band--dark">
+    <div class="container">
+      <div class="row audience-split" style="row-gap: 28px;">
+
+        <div class="col-md-6">
+          <div class="audience-half">
+            <div class="audience-half__eyebrow">For your company</div>
+            <h2 class="audience-half__title">Sponsor the ecosystem your team builds on.</h2>
+            <p class="audience-half__body">
+              Annual sponsorship at any tier funds the working groups, security work, and grants that keep the BEAM ecosystem healthy. ERLEF can provide invoicing if your finance team requires it &mdash; just reach out.
             </p>
-          </div>
-          <div style="font-size: 12px; color: #6b7780; font-style: italic; white-space: nowrap; align-self: flex-start;">
-            Made possible by our sponsors.
+            <div class="audience-half__ctas">
+              <a class="btn btn-amber" href="https://www.every.org/erlang-ecosystem-foundation-inc">Donate Now</a>
+              <a class="btn btn-outline-on-dark" href="mailto:sponsorship@erlef.org">Contact Us</a>
+            </div>
           </div>
         </div>
+
+        <div class="col-md-6">
+          <div class="audience-half">
+            <div class="audience-half__eyebrow">For individuals</div>
+            <h2 class="audience-half__title">Every contribution funds the same work.</h2>
+            <p class="audience-half__body">
+              One-time or recurring &mdash; individual contributions go into the same pool that funds every project on this page. The foundation is a 501(c)(3); contributions are tax-deductible where applicable.
+            </p>
+            <div class="audience-half__ctas">
+              <a class="btn btn-amber" href="https://members.erlef.org/join-us">Become a Member</a>
+              <a class="btn btn-outline-on-dark" href="https://www.every.org/erlang-ecosystem-foundation-inc">Donate Now</a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- 3. HOW SPONSORSHIP WORKS =========================================== -->
+  <!-- 4. HOW SPONSORSHIP WORKS =========================================== -->
   <section id="how-sponsorship-works" class="section-band--white">
     <div class="container">
       <div class="text-eyebrow">How sponsorship works</div>
@@ -254,7 +359,7 @@ layout: default
         A fair-share contribution.
       </h2>
       <p style="font-size: 16px; color: #475560; line-height: 1.55; margin-bottom: 32px; max-width: 760px;">
-        Sponsorship scales with your organization's revenue, so a small consultancy and a global enterprise both contribute proportionally. The amounts below are the <strong>minimum</strong> at each tier &mdash; sponsors are welcome and encouraged to give more.
+        We ask that you contribute the amounts below based on your company size and we encourage you to give more.
       </p>
 
       <div class="row">
@@ -263,7 +368,7 @@ layout: default
             <thead>
               <tr>
                 <th style="text-align: left;">Annual revenue</th>
-                <th style="text-align: right;">Minimum annual contribution</th>
+                <th style="text-align: right;">Annual contribution</th>
               </tr>
             </thead>
             <tbody>
@@ -273,26 +378,22 @@ layout: default
               </tr>
               <tr>
                 <td>Under $1,000,000</td>
-                <td style="text-align: right;"><span class="tier-table__amount">$2,000</span><span class="tier-table__amount-note">or more</span></td>
+                <td style="text-align: right;"><a href="https://www.every.org/erlang-ecosystem-foundation-inc" class="tier-table__amount" style="text-decoration: none;">$2,000<span class="tier-table__amount-note">or more &rarr;</span></a></td>
               </tr>
               <tr>
                 <td>$1,000,000 &ndash; $5,000,000</td>
-                <td style="text-align: right;"><span class="tier-table__amount">$5,000</span><span class="tier-table__amount-note">or more</span></td>
+                <td style="text-align: right;"><a href="https://www.every.org/erlang-ecosystem-foundation-inc" class="tier-table__amount" style="text-decoration: none;">$5,000<span class="tier-table__amount-note">or more &rarr;</span></a></td>
               </tr>
               <tr>
                 <td>$5,000,000+</td>
-                <td style="text-align: right;"><span class="tier-table__amount">$10,000</span><span class="tier-table__amount-note">or more</span></td>
+                <td style="text-align: right;"><a href="https://www.every.org/erlang-ecosystem-foundation-inc" class="tier-table__amount" style="text-decoration: none;">$10,000<span class="tier-table__amount-note">or more &rarr;</span></a></td>
+              </tr>
+              <tr>
+                <td>Enterprise</td>
+                <td style="text-align: right;"><a href="mailto:sponsorship@erlef.org" class="tier-table__amount" style="text-decoration: none;">$50,000<span class="tier-table__amount-note">and contact us</span></a></td>
               </tr>
             </tbody>
           </table>
-          <div style="margin-top: 18px;">
-            <a class="btn btn-amber" href="mailto:sponsorship@erlef.org" style="padding: 12px 24px;">
-              Become a Sponsor &rarr;
-            </a>
-            <p style="font-size: 13px; color: #6b7780; margin-top: 10px; max-width: 520px;">
-              Many sponsors give above the minimum to fund specific programs. Custom arrangements and in-kind support also welcome &mdash; get in touch.
-            </p>
-          </div>
         </div>
 
         <div class="col-md-5">
@@ -309,7 +410,6 @@ layout: default
               <li>Working Group activities across the foundation</li>
               <li>Conference ticket &amp; travel grants</li>
               <li>Fellowships and contributor support</li>
-              <li>Foundation operations &amp; governance</li>
             </ul>
             <p style="font-size: 12px; color: #6b7780; font-style: italic; margin: 16px 0 0; padding-top: 12px; border-top: 1px solid #e3e7ea;">
               Read our <a href="https://erlef.org/public_records/" style="color: inherit;">public records</a> for the full breakdown.
@@ -320,7 +420,7 @@ layout: default
     </div>
   </section>
 
-  <!-- 4. CURRENT SPONSORS WALL =========================================== -->
+  <!-- 5. CURRENT SPONSORS WALL =========================================== -->
   <section class="section-band--white" style="padding-top: 0;">
     <div class="container">
       <h2 style="font-size: 28px; font-weight: 700; color: #1f2c34; margin-bottom: 4px;">
@@ -331,105 +431,100 @@ layout: default
       </p>
 
       <div class="row" style="row-gap: 16px;">
-        {% for sponsor in site.data.sponsors.current %}
+        {% for sponsor in site.data.sponsors.current_sponsors %}
           <div class="col-6 col-md-4 col-lg-3 mb-3">
-            <a class="sponsor-tile" href="{{ sponsor.url }}" rel="noopener" target="_blank">
+            <a class="sponsor-tile" href="{{ sponsor.url }}" rel="noopener noreferrer" target="_blank" title="{{ sponsor.name }}" aria-label="{{ sponsor.name }}">
               {% if sponsor.logo and sponsor.logo != "" %}
-                <img src="{{ '/assets/images/sponsors/' | append: sponsor.logo | relative_url }}" alt="{{ sponsor.name }}">
+                <img src="{{ '/assets/images/sponsors/' | append: sponsor.logo | relative_url }}" alt="{{ sponsor.name }}" title="{{ sponsor.name }}">
               {% else %}
                 {{ sponsor.name }}
-              {% endif %}
-              {% if sponsor.founding %}
-                <span class="sponsor-tile__badge" title="Founding member of the EEF">Founder</span>
               {% endif %}
             </a>
           </div>
         {% endfor %}
       </div>
-
-      {% assign founders = site.data.sponsors.current | where: "founding", true %}
-      {% if founders.size > 0 %}
-        <p style="font-size: 13px; color: #6b7780; margin-top: 18px; line-height: 1.55;">
-          <span class="badge-founding" style="font-size: 9px; padding: 2px 6px; vertical-align: 1px; margin-right: 6px;">Founder</span>
-          marks the {{ founders.size }} organizations that chartered the Erlang Ecosystem Foundation in 2019:
-          {% for f in founders %}<a href="{{ f.url }}" style="color: #475560;">{{ f.name }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}.
-        </p>
-      {% endif %}
     </div>
   </section>
 
-  <!-- 6. INDIVIDUAL DONATE =============================================== -->
-  <section class="section-band--dark text-center">
+  <!-- 6. FOUNDING SPONSORS =============================================== -->
+  <section class="section-band--accent">
     <div class="container">
-      <div style="max-width: 720px; margin: 0 auto;">
-        <div class="text-eyebrow text-eyebrow--on-dark" style="margin-bottom: 12px;">Not a company?</div>
-        <h2 style="font-size: 26px; font-weight: 700; margin-bottom: 12px;">
-          Individual contributions fund the same work.
-        </h2>
-        <p style="font-size: 15px; opacity: 0.9; margin-bottom: 22px;">
-          One-time or recurring. The foundation is a 501(c)(3); contributions are tax-deductible where applicable.
-        </p>
-        <a class="btn btn-amber" href="https://www.every.org/erlang-ecosystem-foundation-inc" style="padding: 14px 26px;">
-          Donate via every.org
-        </a>
+      <div style="margin-bottom: 8px;">
+        <span class="badge-founding">Founding members</span>
+      </div>
+      <h2 style="font-size: 24px; font-weight: 700; color: #1f2c34; margin-bottom: 6px;">
+        The organizations that started the foundation.
+      </h2>
+      <p style="font-size: 14px; color: #475560; margin-bottom: 20px; max-width: 720px;">
+        Chartered the Erlang Ecosystem Foundation in 2019.
+      </p>
+
+      <div class="row" style="row-gap: 16px;">
+        {% for sponsor in site.data.sponsors.founding_sponsors %}
+          <div class="col-6 col-md-4 col-lg-3 mb-3">
+            <a class="sponsor-tile" href="{{ sponsor.url }}" rel="noopener noreferrer" target="_blank" style="background: #fff;" title="{{ sponsor.name }}" aria-label="{{ sponsor.name }}">
+              {% if sponsor.logo and sponsor.logo != "" %}
+                <img src="{{ '/assets/images/sponsors/' | append: sponsor.logo | relative_url }}" alt="{{ sponsor.name }}" title="{{ sponsor.name }}">
+              {% else %}
+                {{ sponsor.name }}
+              {% endif %}
+            </a>
+          </div>
+        {% endfor %}
       </div>
     </div>
   </section>
 
   <!-- 7. COMMON QUESTIONS ================================================ -->
-  <section class="section-band--white">
+  <section class="section-band--dark">
     <div class="container">
-      <h2 style="font-size: 28px; font-weight: 700; color: #1f2c34; margin-bottom: 22px;">
+      <h2 style="font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 28px;">
         Common questions
       </h2>
-      <div class="row">
-        <div class="col-md-6 mb-3">
-          <div class="card-flat" style="padding: 18px; background: #fafbfc;">
-            <h3 style="font-size: 15px; font-weight: 700; color: #1f2c34; margin-bottom: 6px;">
-              Is my contribution tax-deductible?
-            </h3>
-            <p style="font-size: 14px; color: #475560; line-height: 1.55; margin: 0;">
+      <div class="row" style="row-gap: 28px;">
+        <div class="col-md-6">
+          <div class="faq-item">
+            <div class="faq-item__eyebrow">Tax</div>
+            <h3 class="faq-item__question">Is my contribution tax-deductible?</h3>
+            <p class="faq-item__answer">
               The Erlang Ecosystem Foundation is a 501(c)(3) registered in the United States. Contributions are tax-deductible where applicable; treatment varies by jurisdiction.
             </p>
           </div>
         </div>
-        <div class="col-md-6 mb-3">
-          <div class="card-flat" style="padding: 18px; background: #fafbfc;">
-            <h3 style="font-size: 15px; font-weight: 700; color: #1f2c34; margin-bottom: 6px;">
-              How do I become a sponsor?
-            </h3>
-            <p style="font-size: 14px; color: #475560; line-height: 1.55; margin: 0;">
+        <div class="col-md-6">
+          <div class="faq-item">
+            <div class="faq-item__eyebrow">Sponsorship</div>
+            <h3 class="faq-item__question">How do I become a sponsor?</h3>
+            <p class="faq-item__answer">
               Email <a href="mailto:sponsorship@erlef.org">sponsorship@erlef.org</a>. We'll confirm your tier and onboard you.
             </p>
           </div>
         </div>
-        <div class="col-md-6 mb-3">
-          <div class="card-flat" style="padding: 18px; background: #fafbfc;">
-            <h3 style="font-size: 15px; font-weight: 700; color: #1f2c34; margin-bottom: 6px;">
-              Can we sponsor a specific Working Group?
-            </h3>
-            <p style="font-size: 14px; color: #475560; line-height: 1.55; margin: 0;">
+        <div class="col-md-6">
+          <div class="faq-item">
+            <div class="faq-item__eyebrow">Working Groups</div>
+            <h3 class="faq-item__question">Can we sponsor a specific Working Group?</h3>
+            <p class="faq-item__answer">
               Yes &mdash; earmarked contributions above the minimum can be directed to a specific WG or program. Mention this when you reach out.
             </p>
           </div>
         </div>
-        <div class="col-md-6 mb-3">
-          <div class="card-flat" style="padding: 18px; background: #fafbfc;">
-            <h3 style="font-size: 15px; font-weight: 700; color: #1f2c34; margin-bottom: 6px;">
-              Where does the money go?
-            </h3>
-            <p style="font-size: 14px; color: #475560; line-height: 1.55; margin: 0;">
+        <div class="col-md-6">
+          <div class="faq-item">
+            <div class="faq-item__eyebrow">Transparency</div>
+            <h3 class="faq-item__question">Where does the money go?</h3>
+            <p class="faq-item__answer">
               Working Group programs, grants, events, and operations. See our <a href="https://erlef.org/public_records/">public records</a> for the full breakdown.
             </p>
           </div>
         </div>
       </div>
 
-      <div style="text-align: center; margin-top: 24px;">
+      <div style="text-align: center; margin-top: 32px;">
         <a class="btn btn-amber" href="mailto:sponsorship@erlef.org" style="padding: 12px 24px;">
           Become a Sponsor &rarr;
         </a>
-        <a class="btn" href="https://www.every.org/erlang-ecosystem-foundation-inc" style="padding: 12px 24px; border: 1px solid #1f2c34; color: #1f2c34; margin-left: 8px;">
+        <a class="btn btn-outline-on-dark" href="https://www.every.org/erlang-ecosystem-foundation-inc" style="padding: 12px 24px; margin-left: 8px;">
           Donate
         </a>
       </div>

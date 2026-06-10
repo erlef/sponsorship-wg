@@ -1,0 +1,151 @@
+---
+layout: default
+---
+
+<style>
+  /* Scoped to the projects page only via .projects-page wrapper. */
+  body { overflow-x: hidden; }
+  .projects-page { overflow-x: hidden; }
+
+  .projects-page .text-eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #5a6670;
+    margin-bottom: 6px;
+  }
+  /* Darker amber for text use on light backgrounds (WCAG AA, ≥4.76:1).
+     Bright #f59e0b is reserved for button fills and accents on dark surfaces. */
+  .projects-page .text-eyebrow--amber { color: #b45309; font-weight: 700; }
+  .projects-page .text-eyebrow--on-dark { color: rgba(255, 255, 255, 0.7); }
+  .projects-page .text-eyebrow a { color: inherit; text-decoration: none; }
+  .projects-page .text-eyebrow a:hover { text-decoration: underline; }
+
+  .projects-page .section-band--dark { background: #1f2c34; color: #fff; padding: 56px 0; }
+  .projects-page .section-band--white { background: #fff; padding: 56px 0; }
+  .projects-page .section-band--light { background: #f8f9fa; padding: 56px 0; }
+
+  .projects-page .btn-amber {
+    background: #f59e0b;
+    color: #111;
+    font-weight: 600;
+    border: 0;
+  }
+  .projects-page .btn-amber:hover { background: #d97706; color: #111; }
+
+  /* Full-width "well" used for each project listing. */
+  .projects-page .project-well {
+    background: #fff;
+    border: 1px solid #e3e7ea;
+    border-left: 4px solid #f59e0b;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 2px rgba(31, 44, 52, 0.04);
+  }
+  .projects-page .project-well__title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1f2c34;
+    margin: 0 0 10px;
+    line-height: 1.25;
+  }
+  .projects-page .project-well__title a { color: inherit; text-decoration: none; }
+  .projects-page .project-well__title a:hover { text-decoration: underline; }
+  .projects-page .project-well__body {
+    font-size: 15px;
+    color: #475560;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .projects-page .project-well__footer {
+    font-size: 12px;
+    color: #5a6670;
+    font-style: italic;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid #f0f2f4;
+  }
+
+  /* Accessibility: visible focus indicators. */
+  .projects-page a:focus-visible,
+  .projects-page .btn:focus-visible {
+    outline: 2px solid #f59e0b;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  .projects-page .section-band--dark a:focus-visible,
+  .projects-page .section-band--dark .btn:focus-visible {
+    outline-color: #fbbf24;
+    outline-offset: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .projects-page * { transition: none !important; scroll-behavior: auto !important; }
+  }
+
+  /* Responsive adjustments below the Bootstrap md breakpoint (< 768px). */
+  @media (max-width: 767px) {
+    .projects-page h1 { font-size: 30px !important; line-height: 1.18 !important; }
+    .projects-page h2 { font-size: 22px !important; }
+    .projects-page .section-band--dark,
+    .projects-page .section-band--white,
+    .projects-page .section-band--light { padding: 40px 0; }
+    .projects-page .project-well { padding: 20px 22px; }
+    .projects-page .project-well__title { font-size: 19px; }
+    .projects-page .project-well__body { font-size: 14px; }
+  }
+</style>
+
+<div class="projects-page">
+
+  <!-- HERO -->
+  <section class="section-band--dark">
+    <div class="container">
+      <div class="text-eyebrow text-eyebrow--on-dark" style="margin-bottom: 12px;">Erlang Ecosystem Foundation</div>
+      <h1 style="font-size: 38px; font-weight: 700; line-height: 1.18; margin-bottom: 14px;">
+        Sponsored projects &amp; programs.
+      </h1>
+      <p style="font-size: 17px; opacity: 0.9; max-width: 720px; margin: 0;">
+        The full list of initiatives funded by our sponsors &mdash; security work, fellowships, grants, and the tooling that keeps the BEAM ecosystem moving forward.
+      </p>
+    </div>
+  </section>
+
+  <!-- PROJECT LIST -->
+  <section class="section-band--light">
+    <div class="container">
+      {% for project in site.data.projects.projects %}
+        <div class="project-well">
+          <div class="text-eyebrow text-eyebrow--amber">
+            {% if project.wg_url %}<a href="{{ project.wg_url }}">{{ project.working_group }}</a>{% else %}{{ project.working_group }}{% endif %}
+          </div>
+          <h2 class="project-well__title">
+            <a href="{{ project.url }}">{{ project.name }} &rarr;</a>
+          </h2>
+          <p class="project-well__body">{{ project.description }}</p>
+          <div class="project-well__footer">Made possible by our sponsors.</div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section class="section-band--white" style="text-align: center;">
+    <div class="container">
+      <h2 style="font-size: 26px; font-weight: 700; color: #1f2c34; margin-bottom: 10px;">
+        Help fund the next one.
+      </h2>
+      <p style="font-size: 15px; color: #475560; margin-bottom: 22px;">
+        Every project on this page is made possible by sponsorship.
+      </p>
+      <a class="btn btn-amber" href="{{ '/' | relative_url }}#how-sponsorship-works" style="padding: 12px 24px; margin-right: 8px;">
+        Become a Sponsor &rarr;
+      </a>
+      <a class="btn" href="https://www.every.org/erlang-ecosystem-foundation-inc" style="padding: 12px 24px; border: 1px solid #1f2c34; color: #1f2c34;">
+        Donate
+      </a>
+    </div>
+  </section>
+
+</div>
