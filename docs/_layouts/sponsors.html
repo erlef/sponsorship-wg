@@ -2,264 +2,10 @@
 layout: default
 ---
 
-<style>
-  /* Scoped to the sponsors page only via .sponsors-page wrapper. */
-  /* Defensive overflow guard: the EEF theme's navbar lacks a small-viewport collapse
-     and can force the body wider than the viewport on phones. */
-  body { overflow-x: hidden; }
-  .sponsors-page { overflow-x: hidden; }
-  .sponsors-page .text-eyebrow {
-    font-size: 12px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #5a6670;
-    margin-bottom: 6px;
-  }
-  /* Amber for use as TEXT on light backgrounds — darker than the brand amber
-     to meet WCAG AA contrast (≥4.5:1 on white / #f8f9fa / #fafbfc).
-     Bright #f59e0b is reserved for button fills (where it's a background)
-     and for eyebrows on the dark band (.audience-half__eyebrow, .faq-item__eyebrow). */
-  .sponsors-page .text-eyebrow--amber { color: #b45309; font-weight: 700; }
-  .sponsors-page .text-eyebrow--on-dark { color: rgba(255, 255, 255, 0.7); }
+<link rel="stylesheet" href="{{ '/assets/erlef-shared.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/sponsors-page.css' | relative_url }}">
 
-  .sponsors-page .btn-amber {
-    background: #f59e0b;
-    color: #111;
-    font-weight: 600;
-    border: 0;
-  }
-  .sponsors-page .btn-amber:hover { background: #d97706; color: #111; }
-
-  .sponsors-page .btn-outline-on-dark {
-    background: transparent;
-    color: #fff;
-    border: 1px solid #fff;
-  }
-  .sponsors-page .btn-outline-on-dark:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
-
-  .sponsors-page .section-band--light { background: #f8f9fa; padding: 64px 0; }
-  .sponsors-page .section-band--white { background: #fff; padding: 64px 0; }
-  .sponsors-page .section-band--accent { background: #fafbfc; padding: 64px 0; }
-  .sponsors-page .section-band--dark { background: #1f2c34; color: #fff; padding: 64px 0; }
-
-  .sponsors-page .sponsor-tile {
-    background: #fafbfc;
-    border: 1px solid #e3e7ea;
-    border-radius: 8px;
-    height: 130px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 22px;
-    position: relative;
-    text-decoration: none;
-    color: #1f2c34;
-    font-weight: 600;
-    font-size: 15px;
-    text-align: center;
-  }
-  .sponsors-page .sponsor-tile:hover { border-color: #1f2c34; text-decoration: none; }
-  .sponsors-page .sponsor-tile img { max-width: 100%; max-height: 100%; }
-
-  .sponsors-page .badge-founding {
-    background: #f59e0b;
-    color: #111;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 3px 9px;
-    border-radius: 4px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    display: inline-block;
-  }
-
-  .sponsors-page .impact-panel {
-    background: #fafbfc;
-    border: 1px solid #e3e7ea;
-    border-radius: 8px;
-    padding: 24px;
-  }
-
-  /* Audience-split pair (Company / Individual) — styled like the hero, not as cards.
-     Sits directly on the dark band with a subtle vertical divider between halves. */
-  .sponsors-page .audience-half {
-    padding: 8px 4px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    color: #fff;
-  }
-  .sponsors-page .audience-half__eyebrow {
-    font-size: 12px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #f59e0b;
-    font-weight: 700;
-    margin-bottom: 12px;
-  }
-  .sponsors-page .audience-half__title {
-    font-size: 26px;
-    font-weight: 700;
-    color: #fff;
-    margin: 0 0 12px;
-    line-height: 1.22;
-  }
-  .sponsors-page .audience-half__body {
-    font-size: 15px;
-    color: rgba(255, 255, 255, 0.82);
-    line-height: 1.6;
-    margin: 0 0 22px;
-    flex-grow: 1;
-  }
-  .sponsors-page .audience-half__ctas {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-  .sponsors-page .audience-half__ctas .btn { padding: 11px 20px; font-weight: 600; }
-
-  /* Vertical divider between the two halves on md+ viewports only. */
-  @media (min-width: 768px) {
-    .sponsors-page .audience-split > .col-md-6:first-child {
-      border-right: 1px solid rgba(255, 255, 255, 0.12);
-      padding-right: 36px;
-    }
-    .sponsors-page .audience-split > .col-md-6:last-child {
-      padding-left: 36px;
-    }
-  }
-
-  /* FAQ item — sits directly on the dark section band, mirroring the audience-split's
-     bare-content-on-dark treatment. No card chrome, just typographic structure. */
-  .sponsors-page .faq-item {
-    padding: 8px 4px;
-    height: 100%;
-  }
-  .sponsors-page .faq-item__eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #f59e0b;
-    font-weight: 700;
-    margin-bottom: 10px;
-  }
-  .sponsors-page .faq-item__question {
-    font-size: 18px;
-    font-weight: 700;
-    color: #fff;
-    margin: 0 0 10px;
-    line-height: 1.3;
-  }
-  .sponsors-page .faq-item__answer {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.82);
-    line-height: 1.6;
-    margin: 0;
-  }
-  .sponsors-page .faq-item__answer a { color: #fbbf24; }
-  .sponsors-page .faq-item__answer a:hover { color: #fcd34d; }
-
-  /* Project card used in the home-page 2x3 grid. */
-  .sponsors-page .project-card {
-    background: #fff;
-    border: 1px solid #e3e7ea;
-    border-radius: 8px;
-    padding: 20px 22px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  .sponsors-page .project-card__title {
-    font-size: 17px;
-    font-weight: 700;
-    color: #1f2c34;
-    margin: 0 0 8px;
-  }
-  .sponsors-page .project-card__title a { color: inherit; text-decoration: none; }
-  .sponsors-page .project-card__title a:hover { text-decoration: underline; }
-  .sponsors-page .project-card__summary {
-    font-size: 13px;
-    color: #475560;
-    line-height: 1.55;
-    margin: 0 0 14px;
-    flex-grow: 1;
-  }
-  .sponsors-page .project-card__footer {
-    font-size: 11px;
-    color: #5a6670;
-    font-style: italic;
-    padding-top: 10px;
-    border-top: 1px solid #f0f2f4;
-    margin-top: auto;
-  }
-
-  .sponsors-page .tier-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
-    background: #fff;
-    border: 1px solid #e3e7ea;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  .sponsors-page .tier-table thead th {
-    background: #1f2c34;
-    color: #fff;
-    font-weight: 600;
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 12px 16px;
-  }
-  .sponsors-page .tier-table td { padding: 13px 16px; border-bottom: 1px solid #e3e7ea; color: #475560; }
-  .sponsors-page .tier-table tbody tr:nth-child(even) { background: #fafbfc; }
-  .sponsors-page .tier-table tbody tr:last-child td { border-bottom: 0; }
-  .sponsors-page .tier-table__amount { color: #1f2c34; font-weight: 600; }
-  .sponsors-page .tier-table__amount-note { color: #5a6670; font-size: 12px; margin-left: 4px; }
-
-  /* Accessibility: visible focus indicators on all interactive elements.
-     Default browser focus rings disappear on the dark band — we render an
-     explicit amber outline that contrasts against both light and dark surfaces.
-     :focus-visible scopes this to keyboard navigation, so mouse users don't
-     see the ring on click. */
-  .sponsors-page a:focus-visible,
-  .sponsors-page button:focus-visible,
-  .sponsors-page .btn:focus-visible,
-  .sponsors-page .sponsor-tile:focus-visible {
-    outline: 2px solid #f59e0b;
-    outline-offset: 3px;
-    border-radius: 4px;
-  }
-  /* On the dark band, lift the outline color to the brighter amber-400 so it's
-     clearly visible against the deep teal background. */
-  .sponsors-page .section-band--dark a:focus-visible,
-  .sponsors-page .section-band--dark .btn:focus-visible {
-    outline-color: #fbbf24;
-    outline-offset: 4px;
-  }
-
-  /* Respect users who prefer reduced motion — disable smooth-scroll and
-     any transitions on interactive elements. */
-  @media (prefers-reduced-motion: reduce) {
-    .sponsors-page * { transition: none !important; scroll-behavior: auto !important; }
-  }
-
-  /* Responsive adjustments below the Bootstrap md breakpoint (< 768px). */
-  @media (max-width: 767px) {
-    .sponsors-page h1 { font-size: 32px !important; line-height: 1.18 !important; }
-    .sponsors-page h2 { font-size: 24px !important; }
-    .sponsors-page .section-band--dark,
-    .sponsors-page .section-band--light,
-    .sponsors-page .section-band--white,
-    .sponsors-page .section-band--accent { padding: 44px 0; }
-    .sponsors-page .tier-table { font-size: 13px; }
-    .sponsors-page .tier-table thead th { padding: 10px 10px; font-size: 10px; }
-    .sponsors-page .tier-table td { padding: 11px 10px; }
-    .sponsors-page .tier-table__amount-note { display: block; margin-left: 0; font-size: 11px; }
-  }
-</style>
-
-<div class="sponsors-page">
+<div class="erlef-page">
 
   <!-- 1. HERO ============================================================= -->
   <section class="section-band--dark text-center" style="padding: 80px 0;">
@@ -296,13 +42,12 @@ layout: default
           <div class="col-12 col-sm-6 col-md-4 mb-3">
             <div class="project-card">
               <div class="text-eyebrow text-eyebrow--amber" style="margin-bottom: 6px;">
-                {% if project.wg_url %}<a href="{{ project.wg_url }}" style="color: inherit; text-decoration: none;">{{ project.working_group }}</a>{% else %}{{ project.working_group }}{% endif %}
+                {% if project.wg_url %}<a class="project-card__wg-link" href="{{ project.wg_url }}" style="color: inherit; text-decoration: none;">{{ project.working_group }}</a>{% else %}{{ project.working_group }}{% endif %}
               </div>
               <h3 class="project-card__title">
                 <a href="{{ project.url }}">{{ project.name }} &rarr;</a>
               </h3>
               <p class="project-card__summary">{{ project.summary }}</p>
-              <div class="project-card__footer">Made possible by our sponsors.</div>
             </div>
           </div>
         {% endfor %}
@@ -378,19 +123,19 @@ layout: default
               </tr>
               <tr>
                 <td>Under $1,000,000</td>
-                <td style="text-align: right;"><a href="https://www.every.org/erlang-ecosystem-foundation-inc" class="tier-table__amount" style="text-decoration: none;">$2,000<span class="tier-table__amount-note">or more &rarr;</span></a></td>
+                <td style="text-align: right;"><a href="https://www.every.org/erlang-ecosystem-foundation-inc" class="tier-table__amount" style="text-decoration: none;">$4,000<span class="tier-table__amount-note">or more &rarr;</span></a></td>
               </tr>
               <tr>
                 <td>$1,000,000 &ndash; $5,000,000</td>
-                <td style="text-align: right;"><a href="https://www.every.org/erlang-ecosystem-foundation-inc" class="tier-table__amount" style="text-decoration: none;">$5,000<span class="tier-table__amount-note">or more &rarr;</span></a></td>
+                <td style="text-align: right;"><a href="https://www.every.org/erlang-ecosystem-foundation-inc" class="tier-table__amount" style="text-decoration: none;">$20,000<span class="tier-table__amount-note">or more &rarr;</span></a></td>
               </tr>
               <tr>
                 <td>$5,000,000+</td>
-                <td style="text-align: right;"><a href="https://www.every.org/erlang-ecosystem-foundation-inc" class="tier-table__amount" style="text-decoration: none;">$10,000<span class="tier-table__amount-note">or more &rarr;</span></a></td>
+                <td style="text-align: right;"><a href="https://www.every.org/erlang-ecosystem-foundation-inc" class="tier-table__amount" style="text-decoration: none;">$50,000<span class="tier-table__amount-note">or more &rarr;</span></a></td>
               </tr>
               <tr>
                 <td>Enterprise</td>
-                <td style="text-align: right;"><a href="mailto:sponsorship@erlef.org" class="tier-table__amount" style="text-decoration: none;">$50,000<span class="tier-table__amount-note">and contact us</span></a></td>
+                <td style="text-align: right;"><a href="mailto:sponsorship@erlef.org" class="tier-table__amount" style="text-decoration: none;">$75,000<span class="tier-table__amount-note">and contact us</span></a></td>
               </tr>
             </tbody>
           </table>
@@ -459,10 +204,10 @@ layout: default
         Chartered the Erlang Ecosystem Foundation in 2019.
       </p>
 
-      <div class="row" style="row-gap: 16px;">
+      <div class="row" style="row-gap: 12px;">
         {% for sponsor in site.data.sponsors.founding_sponsors %}
-          <div class="col-6 col-md-4 col-lg-3 mb-3">
-            <a class="sponsor-tile" href="{{ sponsor.url }}" rel="noopener noreferrer" target="_blank" style="background: #fff;" title="{{ sponsor.name }}" aria-label="{{ sponsor.name }}">
+          <div class="col-6 col-md-3 col-lg-2 mb-2">
+            <a class="sponsor-tile sponsor-tile--sm" href="{{ sponsor.url }}" rel="noopener noreferrer" target="_blank" style="background: #fff;" title="{{ sponsor.name }}" aria-label="{{ sponsor.name }}">
               {% if sponsor.logo and sponsor.logo != "" %}
                 <img src="{{ '/assets/images/sponsors/' | append: sponsor.logo | relative_url }}" alt="{{ sponsor.name }}" title="{{ sponsor.name }}">
               {% else %}

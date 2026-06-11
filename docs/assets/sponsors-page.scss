@@ -1,0 +1,248 @@
+---
+# Empty front matter required by Jekyll to process this file as Sass.
+---
+
+// Styles unique to the sponsors home page. Loaded in addition to
+// erlef-shared.css. Selectors scoped to .erlef-page.
+
+$brand-dark: #1f2c34;
+$brand-amber: #f59e0b;
+$brand-amber-glow: rgba(245, 158, 11, 0.45);
+$body-text: #475560;
+$body-muted: #5a6670;
+$border-light: #e3e7ea;
+$border-faint: #f0f2f4;
+
+// --- Sponsor logo tiles ----------------------------------------------------
+
+.erlef-page .sponsor-tile {
+  background: #fafbfc;
+  border: 1px solid $border-light;
+  border-radius: 8px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+  position: relative;
+  text-decoration: none;
+  color: $brand-dark;
+  font-weight: 600;
+  font-size: 15px;
+  text-align: center;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+// Amber glow on hover — sharp inner ring + diffuse halo.
+.erlef-page .sponsor-tile:hover {
+  border-color: $brand-amber;
+  box-shadow: 0 0 0 1px $brand-amber, 0 0 24px $brand-amber-glow;
+  text-decoration: none;
+}
+.erlef-page .sponsor-tile img { max-width: 100%; max-height: 100%; }
+
+// Smaller variant for the founding-sponsors honor grid.
+.erlef-page .sponsor-tile--sm {
+  height: 80px;
+  padding: 14px;
+  font-size: 13px;
+  border-radius: 6px;
+}
+
+// --- Founding-members section --------------------------------------------
+
+.erlef-page .badge-founding {
+  background: $brand-amber;
+  color: #111;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: inline-block;
+}
+
+// --- Impact panel (next to the tier table) -------------------------------
+
+.erlef-page .impact-panel {
+  background: #fafbfc;
+  border: 1px solid $border-light;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+// --- Audience-split pair (Company / Individual) --------------------------
+// Styled like the hero — content sits directly on the dark band.
+
+.erlef-page .audience-half {
+  padding: 8px 4px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+.erlef-page .audience-half__eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $brand-amber;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.erlef-page .audience-half__title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 12px;
+  line-height: 1.22;
+}
+.erlef-page .audience-half__body {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.6;
+  margin: 0 0 22px;
+  flex-grow: 1;
+}
+.erlef-page .audience-half__ctas {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.erlef-page .audience-half__ctas .btn { padding: 11px 20px; font-weight: 600; }
+
+// Vertical divider between the two halves on md+ viewports only.
+@media (min-width: 768px) {
+  .erlef-page .audience-split > .col-md-6:first-child {
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+    padding-right: 36px;
+  }
+  .erlef-page .audience-split > .col-md-6:last-child {
+    padding-left: 36px;
+  }
+}
+
+// --- FAQ items on the dark band ------------------------------------------
+
+.erlef-page .faq-item {
+  padding: 8px 4px;
+  height: 100%;
+}
+.erlef-page .faq-item__eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $brand-amber;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.erlef-page .faq-item__question {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 10px;
+  line-height: 1.3;
+}
+.erlef-page .faq-item__answer {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.6;
+  margin: 0;
+
+  a { color: #fbbf24; }
+  a:hover { color: #fcd34d; }
+}
+
+// --- Project cards in the home-page 2x3 grid -----------------------------
+// The whole card is a click surface: title <a>::after fills the card.
+// Nested links get z-index: 1 so they stay independently clickable.
+
+.erlef-page .project-card {
+  background: #fff;
+  border: 1px solid $border-light;
+  border-radius: 8px;
+  padding: 20px 22px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+.erlef-page .project-card:hover {
+  border-color: $brand-amber;
+  box-shadow: 0 0 0 1px $brand-amber, 0 0 24px $brand-amber-glow;
+  transform: translateY(-2px);
+
+  .project-card__title a { text-decoration: underline; }
+}
+.erlef-page .project-card__title {
+  font-size: 17px;
+  font-weight: 700;
+  color: $brand-dark;
+  margin: 0 0 8px;
+
+  a { color: inherit; text-decoration: none; }
+  a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+  }
+}
+.erlef-page .project-card__wg-link {
+  position: relative;
+  z-index: 1;
+}
+.erlef-page .project-card__summary {
+  font-size: 13px;
+  color: $body-text;
+  line-height: 1.55;
+  margin: 0;
+  flex-grow: 1;
+}
+
+// --- Fair-share tier table -----------------------------------------------
+
+.erlef-page .tier-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  background: #fff;
+  border: 1px solid $border-light;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.erlef-page .tier-table thead th {
+  background: $brand-dark;
+  color: #fff;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 12px 16px;
+}
+.erlef-page .tier-table td {
+  padding: 13px 16px;
+  border-bottom: 1px solid $border-light;
+  color: $body-text;
+}
+.erlef-page .tier-table tbody tr:nth-child(even) { background: #fafbfc; }
+.erlef-page .tier-table tbody tr:last-child td { border-bottom: 0; }
+.erlef-page .tier-table__amount { color: $brand-dark; font-weight: 600; }
+.erlef-page .tier-table__amount-note {
+  color: $body-muted;
+  font-size: 12px;
+  margin-left: 4px;
+}
+
+// --- Mobile adjustments for the tier table -------------------------------
+
+@media (max-width: 767px) {
+  .erlef-page .tier-table { font-size: 13px; }
+  .erlef-page .tier-table thead th { padding: 10px 10px; font-size: 10px; }
+  .erlef-page .tier-table td { padding: 11px 10px; }
+  .erlef-page .tier-table__amount-note {
+    display: block;
+    margin-left: 0;
+    font-size: 11px;
+  }
+}

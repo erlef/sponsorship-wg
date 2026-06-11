@@ -1,0 +1,117 @@
+---
+# Empty front matter required by Jekyll to process this file as Sass.
+---
+
+// Shared styles for the ERLEF custom pages (sponsors home + projects).
+// Loaded by every layout that wraps content in <div class="erlef-page">.
+// Selectors are scoped to .erlef-page so they don't bleed into the rest of
+// the EEF Jekyll theme's pages.
+
+// --- Brand tokens -----------------------------------------------------------
+
+$brand-dark: #1f2c34;
+$brand-amber: #f59e0b;             // button fills, accents on dark
+$brand-amber-text-light: #b45309;  // amber used as text on light bgs (WCAG AA)
+$brand-amber-glow: rgba(245, 158, 11, 0.75);
+$brand-amber-bright: #fbbf24;      // brighter for focus rings on dark bg
+
+$body-text: #475560;
+$body-muted: #5a6670;
+$border-light: #e3e7ea;
+$border-faint: #f0f2f4;
+
+// --- Defensive overflow guard ----------------------------------------------
+// The EEF theme's navbar lacks a small-viewport collapse and can force the
+// body wider than the viewport on phones.
+body { overflow-x: hidden; }
+.erlef-page { overflow-x: hidden; }
+
+// --- Eyebrow tags -----------------------------------------------------------
+
+.erlef-page .text-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $body-muted;
+  margin-bottom: 6px;
+}
+.erlef-page .text-eyebrow--amber {
+  color: $brand-amber-text-light;
+  font-weight: 700;
+}
+.erlef-page .text-eyebrow--on-dark {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+// --- Buttons ---------------------------------------------------------------
+
+.erlef-page .btn-amber {
+  background: $brand-amber;
+  color: #111;
+  font-weight: 600;
+  border: 0;
+  transition: filter 0.2s ease;
+}
+// Glow only on hover — no background darken. drop-shadow (vs box-shadow)
+// renders the shadow from the element's painted alpha — extends strictly
+// outward into transparent space with no inner contribution, so no visible
+// ring forms at the button edge.
+.erlef-page .btn-amber:hover {
+  color: #111;
+  filter: drop-shadow(0 0 8px $brand-amber-glow);
+}
+
+.erlef-page .btn-outline-on-dark {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+}
+.erlef-page .btn-outline-on-dark:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+// --- Section bands ---------------------------------------------------------
+
+.erlef-page .section-band--light  { background: #f8f9fa; padding: 64px 0; }
+.erlef-page .section-band--white  { background: #fff;     padding: 64px 0; }
+.erlef-page .section-band--accent { background: #fafbfc; padding: 64px 0; }
+.erlef-page .section-band--dark   { background: $brand-dark; color: #fff; padding: 64px 0; }
+
+// --- Accessibility: visible focus indicators -------------------------------
+// :focus-visible scopes this to keyboard navigation, so mouse users don't
+// see the ring on click.
+.erlef-page a:focus-visible,
+.erlef-page button:focus-visible,
+.erlef-page .btn:focus-visible {
+  outline: 2px solid $brand-amber;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+// On the dark band, lift the outline to the brighter amber-400 so it's
+// clearly visible against the deep teal background.
+.erlef-page .section-band--dark a:focus-visible,
+.erlef-page .section-band--dark .btn:focus-visible {
+  outline-color: $brand-amber-bright;
+  outline-offset: 4px;
+}
+
+// --- Reduced motion --------------------------------------------------------
+
+@media (prefers-reduced-motion: reduce) {
+  .erlef-page * {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// --- Mobile typography & section padding -----------------------------------
+
+@media (max-width: 767px) {
+  .erlef-page h1 { font-size: 32px !important; line-height: 1.18 !important; }
+  .erlef-page h2 { font-size: 24px !important; }
+  .erlef-page .section-band--dark,
+  .erlef-page .section-band--light,
+  .erlef-page .section-band--white,
+  .erlef-page .section-band--accent { padding: 44px 0; }
+}
