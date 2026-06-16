@@ -11,7 +11,7 @@ layout: default
   <section class="section-band--dark">
     <div class="container">
       <div class="text-eyebrow text-eyebrow--on-dark" style="margin-bottom: 12px;">Erlang Ecosystem Foundation</div>
-      <h1 style="font-size: 38px; font-weight: 700; line-height: 1.18; margin-bottom: 14px;">
+      <h1 style="font-size: 38px; line-height: 1.18; margin-bottom: 14px;">
         Sponsored projects &amp; programs.
       </h1>
       <p style="font-size: 17px; opacity: 0.9; max-width: 720px; margin: 0;">
@@ -29,7 +29,7 @@ layout: default
             {% if project.wg_url %}<a href="{{ project.wg_url }}">{{ project.working_group }}</a>{% else %}{{ project.working_group }}{% endif %}
           </div>
           <h2 class="project-well__title">
-            <a href="{{ project.url }}">{{ project.name }} &rarr;</a>
+            <a href="{{ project.url }}">{{ project.name }} <span class="arrow">&rarr;</span></a>
           </h2>
           <p class="project-well__body">{{ project.description }}</p>
           <div class="project-well__footer">Made possible by our sponsors.</div>
@@ -41,16 +41,16 @@ layout: default
   <!-- CLOSING CTA -->
   <section class="section-band--dark" style="text-align: center;">
     <div class="container">
-      <h2 style="font-size: 26px; font-weight: 700; margin-bottom: 10px;">
+      <h2 style="font-size: 26px; margin-bottom: 10px;">
         Help fund the next one.
       </h2>
       <p style="font-size: 15px; color: rgba(255, 255, 255, 0.85); margin-bottom: 22px;">
         Every project on this page is made possible by sponsorship.
       </p>
-      <a class="btn btn-amber" href="{{ '/' | relative_url }}#how-sponsorship-works" style="padding: 12px 24px; margin-right: 8px;">
-        Become a Sponsor &rarr;
+      <a class="btn btn-blue" href="{{ '/' | relative_url }}#how-sponsorship-works" style="padding: 12px 24px; margin-right: 8px;">
+        Become a Sponsor <span class="arrow">&rarr;</span>
       </a>
-      <a class="btn btn-outline-on-dark" href="https://www.every.org/erlang-ecosystem-foundation-inc" style="padding: 12px 24px;">
+      <a class="btn btn-inverted-on-dark" href="https://www.every.org/erlang-ecosystem-foundation-inc" style="padding: 12px 24px;">
         Donate
       </a>
     </div>

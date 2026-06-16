@@ -7,105 +7,183 @@
 // Selectors are scoped to .erlef-page so they don't bleed into the rest of
 // the EEF Jekyll theme's pages.
 
-// --- Brand tokens -----------------------------------------------------------
+// --- Web fonts: Montserrat (sans) + B612 Mono (labels/eyebrows) -----------
 
-$brand-dark: #1f2c34;
-$brand-amber: #f59e0b;             // button fills, accents on dark
-$brand-amber-text-light: #b45309;  // amber used as text on light bgs (WCAG AA)
-$brand-amber-glow: rgba(245, 158, 11, 0.75);
-$brand-amber-bright: #fbbf24;      // brighter for focus rings on dark bg
+@import url('https://fonts.googleapis.com/css2?family=B612+Mono:wght@400;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap');
 
-$body-text: #475560;
-$body-muted: #5a6670;
-$border-light: #e3e7ea;
-$border-faint: #f0f2f4;
+// --- Brand tokens ---------------------------------------------------------
 
-// --- Defensive overflow guard ----------------------------------------------
+$brand-dark:        #1F2C34;
+$brand-blue:        #006BF7;       // primary brand — button fills, focus rings
+$brand-blue-light:  #49B7FF;       // accent — eyebrow text, hover focus on dark
+$brand-blue-200:    #93C5FD;       // hero gradient lightest stop
+$brand-blue-400:    #49B7FF;       // hero gradient mid stop
+$brand-blue-600:    #006BF7;       // hero gradient core
+$brand-blue-hover:  #0057D4;       // primary button hover background
+$brand-blue-glow:   rgba(0, 107, 247, 0.45);
+
+$body-text:    #475560;
+$body-muted:   #5A6670;
+$border-light: #E3E7EA;
+$border-faint: #F0F2F4;
+$gray-bg:      #F5F5F5;
+
+$font-sans: 'Montserrat', sans-serif;
+$font-mono: 'B612 Mono', monospace;
+
+// --- Defensive overflow guard ---------------------------------------------
 // The EEF theme's navbar lacks a small-viewport collapse and can force the
 // body wider than the viewport on phones.
 body { overflow-x: hidden; }
-.erlef-page { overflow-x: hidden; }
+.erlef-page {
+  overflow-x: hidden;
+  font-family: $font-sans;
+}
 
-// --- Eyebrow tags -----------------------------------------------------------
+// --- Base typography ------------------------------------------------------
+// Heading weights match the Figma reference: 900 for top-level structural
+// headlines (h1/h2), 800 for card/subhead titles (h3). Body paragraphs use
+// 500 (medium) — Montserrat's default 400 looks anemic next to the 900
+// headlines on darker bands.
+
+.erlef-page h1 {
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+}
+.erlef-page h2 {
+  font-weight: 900;
+  letter-spacing: -0.022em;
+  line-height: 1.15;
+}
+.erlef-page h3 {
+  font-weight: 800;
+  line-height: 1.25;
+}
+.erlef-page p {
+  font-weight: 500;
+}
+
+// Decorative arrows in CTAs / link affordances — kept lighter than the
+// surrounding bold text so they read as a trailing affordance rather than
+// part of the headline weight.
+.erlef-page .arrow {
+  font-weight: 400;
+  display: inline-block;
+  margin-left: 0.18em;
+}
+
+// --- Links: same color as surrounding text, underline-only ----------------
+// Links inherit color from their context (so they match the surrounding
+// paragraph/heading text), and rely on the underline as the link affordance.
+// Buttons opt out via their explicit color rules + text-decoration: none.
+
+.erlef-page a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.erlef-page .btn,
+.erlef-page a.btn { text-decoration: none; }
+
+// --- Eyebrow tag (B612 Mono, blue-light) ----------------------------------
 
 .erlef-page .text-eyebrow {
-  font-size: 12px;
+  font-family: $font-mono;
+  font-size: 11px;
+  font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: $body-muted;
+  color: $brand-blue-light;
   margin-bottom: 6px;
+  display: block;
 }
-.erlef-page .text-eyebrow--amber {
-  color: $brand-amber-text-light;
+.erlef-page .text-eyebrow--on-dark { color: $brand-blue-light; }
+
+// --- Buttons --------------------------------------------------------------
+
+// Primary — filled blue.
+.erlef-page .btn-blue {
+  background: $brand-blue;
+  color: #fff;
   font-weight: 700;
-}
-.erlef-page .text-eyebrow--on-dark {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-// --- Buttons ---------------------------------------------------------------
-
-.erlef-page .btn-amber {
-  background: $brand-amber;
-  color: #111;
-  font-weight: 600;
   border: 0;
-  transition: filter 0.2s ease;
+  transition: background 0.2s ease;
 }
-// Glow only on hover — no background darken. drop-shadow (vs box-shadow)
-// renders the shadow from the element's painted alpha — extends strictly
-// outward into transparent space with no inner contribution, so no visible
-// ring forms at the button edge.
-.erlef-page .btn-amber:hover {
-  color: #111;
-  filter: drop-shadow(0 0 8px $brand-amber-glow);
+.erlef-page .btn-blue:hover {
+  background: $brand-blue-hover;
+  color: #fff;
 }
 
-.erlef-page .btn-outline-on-dark {
+// Inverted secondary on dark — replaces the old outline-on-dark.
+// Solid white fill with dark text; hover flips to filled blue + white text.
+.erlef-page .btn-inverted-on-dark {
+  background: #fff;
+  color: $brand-dark;
+  font-weight: 700;
+  border: 0;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.erlef-page .btn-inverted-on-dark:hover {
+  background: $brand-blue;
+  color: #fff;
+}
+
+// Outline-blue on light bg, inverts to filled-blue + white text on hover.
+.erlef-page .btn-outline-blue {
   background: transparent;
-  color: #fff;
-  border: 1px solid #fff;
+  color: $brand-blue;
+  font-weight: 700;
+  border: 1.5px solid $brand-blue;
+  transition: background 0.2s ease, color 0.2s ease;
 }
-.erlef-page .btn-outline-on-dark:hover {
-  background: rgba(255, 255, 255, 0.1);
+.erlef-page .btn-outline-blue:hover {
+  background: $brand-blue;
   color: #fff;
 }
 
-// --- Section bands ---------------------------------------------------------
+// --- Section bands (utility helpers — retained for compatibility) --------
 
 .erlef-page .section-band--light  { background: #f8f9fa; padding: 64px 0; }
 .erlef-page .section-band--white  { background: #fff;     padding: 64px 0; }
-.erlef-page .section-band--accent { background: #fafbfc; padding: 64px 0; }
+.erlef-page .section-band--accent { background: $gray-bg; padding: 64px 0; }
 .erlef-page .section-band--dark   { background: $brand-dark; color: #fff; padding: 64px 0; }
 
-// --- Accessibility: visible focus indicators -------------------------------
-// :focus-visible scopes this to keyboard navigation, so mouse users don't
-// see the ring on click.
+// --- Accessibility: visible focus indicators ------------------------------
+
 .erlef-page a:focus-visible,
 .erlef-page button:focus-visible,
 .erlef-page .btn:focus-visible {
-  outline: 2px solid $brand-amber;
+  outline: 2px solid $brand-blue;
   outline-offset: 3px;
   border-radius: 4px;
 }
-// On the dark band, lift the outline to the brighter amber-400 so it's
+// On any dark band, lift the outline to the brighter blue-light so it's
 // clearly visible against the deep teal background.
 .erlef-page .section-band--dark a:focus-visible,
-.erlef-page .section-band--dark .btn:focus-visible {
-  outline-color: $brand-amber-bright;
+.erlef-page .section-band--dark .btn:focus-visible,
+.erlef-page .hero a:focus-visible,
+.erlef-page .hero .btn:focus-visible,
+.erlef-page .how-section a:focus-visible,
+.erlef-page .how-section .btn:focus-visible,
+.erlef-page .stats-section a:focus-visible,
+.erlef-page .faq-section a:focus-visible,
+.erlef-page .faq-section .btn:focus-visible {
+  outline-color: $brand-blue-light;
   outline-offset: 4px;
 }
 
-// --- Reduced motion --------------------------------------------------------
+// --- Reduced motion -------------------------------------------------------
 
 @media (prefers-reduced-motion: reduce) {
   .erlef-page * {
     transition: none !important;
+    animation: none !important;
     scroll-behavior: auto !important;
   }
 }
 
-// --- Mobile typography & section padding -----------------------------------
+// --- Mobile typography & section padding ----------------------------------
 
 @media (max-width: 767px) {
   .erlef-page h1 { font-size: 32px !important; line-height: 1.18 !important; }
@@ -113,5 +191,13 @@ body { overflow-x: hidden; }
   .erlef-page .section-band--dark,
   .erlef-page .section-band--light,
   .erlef-page .section-band--white,
-  .erlef-page .section-band--accent { padding: 44px 0; }
+  .erlef-page .section-band--accent,
+  .erlef-page .hero,
+  .erlef-page .projects-section,
+  .erlef-page .how-section,
+  .erlef-page .tiers-section,
+  .erlef-page .sponsors-section,
+  .erlef-page .founding-section,
+  .erlef-page .stats-section,
+  .erlef-page .faq-section { padding: 44px 0; }
 }

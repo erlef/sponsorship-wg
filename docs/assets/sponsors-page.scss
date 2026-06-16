@@ -5,75 +5,111 @@
 // Styles unique to the sponsors home page. Loaded in addition to
 // erlef-shared.css. Selectors scoped to .erlef-page.
 
-$brand-dark: #1f2c34;
-$brand-amber: #f59e0b;
-$brand-amber-glow: rgba(245, 158, 11, 0.45);
-$body-text: #475560;
-$body-muted: #5a6670;
-$border-light: #e3e7ea;
-$border-faint: #f0f2f4;
+$brand-dark:        #1F2C34;
+$brand-blue:        #006BF7;
+$brand-blue-light:  #49B7FF;
+$brand-blue-200:    #93C5FD;
+$brand-blue-400:    #49B7FF;
+$brand-blue-600:    #006BF7;
+$brand-blue-glow:   rgba(0, 107, 247, 0.45);
 
-// --- Sponsor logo tiles ----------------------------------------------------
+$body-text:    #475560;
+$body-muted:   #5A6670;
+$border-light: #E3E7EA;
+$border-faint: #F0F2F4;
+$gray-bg:      #F5F5F5;
 
-.erlef-page .sponsor-tile {
-  background: #fafbfc;
+$font-mono: 'B612 Mono', monospace;
+
+// ════════════════════════════════════════════════════════════════════════
+//  HERO — dark band with diagonal blue gradient anchored bottom-right
+// ════════════════════════════════════════════════════════════════════════
+
+.erlef-page .hero {
+  background: $brand-dark;
+  color: #fff;
+  padding: 88px 0 96px;
+}
+
+// ════════════════════════════════════════════════════════════════════════
+//  PROJECTS SECTION — white bg, 3-up card grid
+// ════════════════════════════════════════════════════════════════════════
+
+.erlef-page .projects-section {
+  background: #fff;
+  padding: 80px 0 72px;
+}
+
+// The whole card is a click surface — title <a>::after fills the card.
+.erlef-page .project-card {
+  background: #fff;
   border: 1px solid $border-light;
-  border-radius: 8px;
-  height: 130px;
+  border-radius: 12px;
+  padding: 22px 24px;
+  height: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 22px;
+  flex-direction: column;
   position: relative;
-  text-decoration: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+.erlef-page .project-card:hover {
+  border-color: $brand-blue;
+  box-shadow: 0 0 0 1px $brand-blue, 0 0 24px $brand-blue-glow;
+  transform: translateY(-2px);
+
+  .project-card__title a { text-decoration: underline; }
+}
+.erlef-page .project-card__title {
+  font-size: 17px;
+  font-weight: 800;
   color: $brand-dark;
-  font-weight: 600;
-  font-size: 15px;
-  text-align: center;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-// Amber glow on hover — sharp inner ring + diffuse halo.
-.erlef-page .sponsor-tile:hover {
-  border-color: $brand-amber;
-  box-shadow: 0 0 0 1px $brand-amber, 0 0 24px $brand-amber-glow;
-  text-decoration: none;
-}
-.erlef-page .sponsor-tile img { max-width: 100%; max-height: 100%; }
+  margin: 0 0 8px;
 
-// Smaller variant for the founding-sponsors honor grid.
-.erlef-page .sponsor-tile--sm {
-  height: 80px;
-  padding: 14px;
-  font-size: 13px;
-  border-radius: 6px;
+  a { color: inherit; text-decoration: none; }
+  a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+  }
 }
-
-// --- Founding-members section --------------------------------------------
-
-.erlef-page .badge-founding {
-  background: $brand-amber;
-  color: #111;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 3px 9px;
-  border-radius: 4px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  display: inline-block;
+.erlef-page .project-card__wg-link {
+  position: relative;
+  z-index: 1;
+}
+.erlef-page .project-card__summary {
+  font-size: 13.5px;
+  color: $body-text;
+  line-height: 1.6;
+  margin: 0;
+  flex-grow: 1;
 }
 
-// --- Impact panel (next to the tier table) -------------------------------
+// ════════════════════════════════════════════════════════════════════════
+//  HOW SECTION (Company / Individual split) — dark bg with soft blue glow
+// ════════════════════════════════════════════════════════════════════════
 
-.erlef-page .impact-panel {
-  background: #fafbfc;
-  border: 1px solid $border-light;
-  border-radius: 8px;
-  padding: 24px;
+.erlef-page .how-section {
+  background: $brand-dark;
+  color: #fff;
+  padding: 80px 0 72px;
+  position: relative;
+  overflow: hidden;
 }
+.erlef-page .how-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 900px 600px at 50% 110%,
+    $brand-blue-400 0%,
+    $brand-blue-200 30%,
+    transparent 65%);
+  opacity: 0.10;
+  pointer-events: none;
+}
+.erlef-page .how-section > .container { position: relative; z-index: 1; }
 
-// --- Audience-split pair (Company / Individual) --------------------------
-// Styled like the hero — content sits directly on the dark band.
-
+// Audience-half (one of the two halves) — no card chrome, hero-like typography.
 .erlef-page .audience-half {
   padding: 8px 4px;
   height: 100%;
@@ -82,16 +118,17 @@ $border-faint: #f0f2f4;
   color: #fff;
 }
 .erlef-page .audience-half__eyebrow {
-  font-size: 12px;
-  letter-spacing: 0.14em;
+  font-family: $font-mono;
+  font-size: 11px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: $brand-amber;
+  color: $brand-blue-light;
   font-weight: 700;
   margin-bottom: 12px;
 }
 .erlef-page .audience-half__title {
   font-size: 26px;
-  font-weight: 700;
+  font-weight: 800;
   color: #fff;
   margin: 0 0 12px;
   line-height: 1.22;
@@ -107,8 +144,9 @@ $border-faint: #f0f2f4;
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+
+  .btn { padding: 11px 20px; font-weight: 700; }
 }
-.erlef-page .audience-half__ctas .btn { padding: 11px 20px; font-weight: 600; }
 
 // Vertical divider between the two halves on md+ viewports only.
 @media (min-width: 768px) {
@@ -121,86 +159,14 @@ $border-faint: #f0f2f4;
   }
 }
 
-// --- FAQ items on the dark band ------------------------------------------
+// ════════════════════════════════════════════════════════════════════════
+//  TIERS SECTION — white bg, fair-share contribution table + impact panel
+// ════════════════════════════════════════════════════════════════════════
 
-.erlef-page .faq-item {
-  padding: 8px 4px;
-  height: 100%;
-}
-.erlef-page .faq-item__eyebrow {
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: $brand-amber;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-.erlef-page .faq-item__question {
-  font-size: 18px;
-  font-weight: 700;
-  color: #fff;
-  margin: 0 0 10px;
-  line-height: 1.3;
-}
-.erlef-page .faq-item__answer {
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.82);
-  line-height: 1.6;
-  margin: 0;
-
-  a { color: #fbbf24; }
-  a:hover { color: #fcd34d; }
-}
-
-// --- Project cards in the home-page 2x3 grid -----------------------------
-// The whole card is a click surface: title <a>::after fills the card.
-// Nested links get z-index: 1 so they stay independently clickable.
-
-.erlef-page .project-card {
+.erlef-page .tiers-section {
   background: #fff;
-  border: 1px solid $border-light;
-  border-radius: 8px;
-  padding: 20px 22px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+  padding: 80px 0 72px;
 }
-.erlef-page .project-card:hover {
-  border-color: $brand-amber;
-  box-shadow: 0 0 0 1px $brand-amber, 0 0 24px $brand-amber-glow;
-  transform: translateY(-2px);
-
-  .project-card__title a { text-decoration: underline; }
-}
-.erlef-page .project-card__title {
-  font-size: 17px;
-  font-weight: 700;
-  color: $brand-dark;
-  margin: 0 0 8px;
-
-  a { color: inherit; text-decoration: none; }
-  a::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 8px;
-  }
-}
-.erlef-page .project-card__wg-link {
-  position: relative;
-  z-index: 1;
-}
-.erlef-page .project-card__summary {
-  font-size: 13px;
-  color: $body-text;
-  line-height: 1.55;
-  margin: 0;
-  flex-grow: 1;
-}
-
-// --- Fair-share tier table -----------------------------------------------
 
 .erlef-page .tier-table {
   width: 100%;
@@ -208,34 +174,48 @@ $border-faint: #f0f2f4;
   font-size: 14px;
   background: #fff;
   border: 1px solid $border-light;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
 }
 .erlef-page .tier-table thead th {
   background: $brand-dark;
-  color: #fff;
-  font-weight: 600;
-  font-size: 11px;
-  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: $font-mono;
+  font-weight: 700;
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 12px 16px;
+  padding: 14px 22px;
+  text-align: left;
 }
 .erlef-page .tier-table td {
   padding: 13px 16px;
   border-bottom: 1px solid $border-light;
   color: $body-text;
+  font-weight: 500;
 }
 .erlef-page .tier-table tbody tr:nth-child(even) { background: #fafbfc; }
 .erlef-page .tier-table tbody tr:last-child td { border-bottom: 0; }
-.erlef-page .tier-table__amount { color: $brand-dark; font-weight: 600; }
+.erlef-page .tier-table__amount {
+  color: $brand-dark;
+  font-weight: 800;
+}
 .erlef-page .tier-table__amount-note {
   color: $body-muted;
   font-size: 12px;
+  font-weight: 400;
   margin-left: 4px;
 }
 
-// --- Mobile adjustments for the tier table -------------------------------
+// Impact panel sitting beside the tier table.
+.erlef-page .impact-panel {
+  background: #fafbfc;
+  border: 1px solid $border-light;
+  border-radius: 12px;
+  padding: 24px;
+}
 
+// Mobile adjustments for the tier table.
 @media (max-width: 767px) {
   .erlef-page .tier-table { font-size: 13px; }
   .erlef-page .tier-table thead th { padding: 10px 10px; font-size: 10px; }
@@ -245,4 +225,189 @@ $border-faint: #f0f2f4;
     margin-left: 0;
     font-size: 11px;
   }
+}
+
+// ════════════════════════════════════════════════════════════════════════
+//  SPONSORS SECTION — gray bg, logo wall (continues into FOUNDING)
+// ════════════════════════════════════════════════════════════════════════
+
+.erlef-page .sponsors-section {
+  background: $gray-bg;
+  padding: 80px 0 0;
+}
+
+.erlef-page .sponsor-tile {
+  background: #fff;
+  border: 1px solid $border-light;
+  border-radius: 10px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+  position: relative;
+  text-decoration: none;
+  color: $brand-dark;
+  font-weight: 600;
+  font-size: 15px;
+  text-align: center;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.erlef-page .sponsor-tile:hover {
+  border-color: $brand-blue;
+  box-shadow: 0 0 0 1px $brand-blue, 0 0 24px $brand-blue-glow;
+  text-decoration: none;
+}
+.erlef-page .sponsor-tile img { max-width: 100%; max-height: 100%; }
+
+// Smaller variant for the founding-sponsors honor grid.
+.erlef-page .sponsor-tile--sm {
+  height: 80px;
+  padding: 14px;
+  font-size: 13px;
+  border-radius: 6px;
+}
+
+// ════════════════════════════════════════════════════════════════════════
+//  FOUNDING SECTION — continues gray bg, blue heading per new design
+// ════════════════════════════════════════════════════════════════════════
+
+.erlef-page .founding-section {
+  background: $gray-bg;
+  padding: 64px 0 72px;
+}
+.erlef-page .founding-section h2 {
+  color: $brand-blue;
+}
+
+.erlef-page .badge-founding {
+  background: $brand-blue;
+  color: #fff;
+  font-family: $font-mono;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: inline-block;
+}
+
+// ════════════════════════════════════════════════════════════════════════
+//  STATS + FAQ WRAPPER — dark bg + radial glows spanning both sections
+//  so the gradient can extend continuously without being clipped by
+//  individual section boundaries.
+// ════════════════════════════════════════════════════════════════════════
+
+.erlef-page .stats-faq-wrap {
+  background: $brand-dark;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+// Large outer glow — positioned near the top of the wrap (over the stats
+// section) but extends downward into the FAQ. Top-anchored so its visual
+// "center" lands on the stats area.
+.erlef-page .stats-faq-wrap::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 100px;
+  transform: translateX(-50%);
+  width: 900px; height: 480px;
+  background: radial-gradient(ellipse,
+    $brand-blue-200 0%,
+    $brand-blue-400 28%,
+    transparent 65%);
+  opacity: 0.22;
+  filter: blur(48px);
+  pointer-events: none;
+}
+.erlef-page .stats-faq-wrap::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 130px;
+  transform: translateX(-50%);
+  width: 600px; height: 320px;
+  background: radial-gradient(ellipse, $brand-blue-600 0%, transparent 65%);
+  opacity: 0.18;
+  filter: blur(32px);
+  pointer-events: none;
+}
+
+// Stats section inside the wrap — transparent, just holds padding + content.
+.erlef-page .stats-section {
+  padding: 60px 0;
+  position: relative;
+}
+.erlef-page .stats-section > .container {
+  position: relative;
+  z-index: 1;
+}
+.erlef-page .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  text-align: center;
+}
+.erlef-page .stat-item { padding: 12px 8px; }
+.erlef-page .stat-num {
+  font-size: 52px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 10px;
+}
+.erlef-page .stat-label {
+  font-family: $font-mono;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $brand-blue-light;
+}
+@media (max-width: 767px) {
+  .erlef-page .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .erlef-page .stat-num { font-size: 40px; }
+}
+
+// ════════════════════════════════════════════════════════════════════════
+//  FAQ SECTION — dark bg, chrome-less items (keep our existing treatment)
+// ════════════════════════════════════════════════════════════════════════
+
+// FAQ section inside the wrap — transparent, inherits dark bg from .stats-faq-wrap.
+.erlef-page .faq-section {
+  padding: 80px 0;
+  position: relative;
+}
+.erlef-page .faq-section > .container { position: relative; z-index: 1; }
+
+.erlef-page .faq-item {
+  padding: 8px 4px;
+  height: 100%;
+}
+.erlef-page .faq-item__eyebrow {
+  font-family: $font-mono;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $brand-blue-light;
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: block;
+}
+.erlef-page .faq-item__question {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 10px;
+  line-height: 1.3;
+}
+.erlef-page .faq-item__answer {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.6;
+  margin: 0;
 }
