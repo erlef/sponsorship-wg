@@ -14,54 +14,13 @@ layout: default
       <h1 class="text-balance" style="font-size: 44px; line-height: 1.15; margin-bottom: 18px;">
         Help us keep the BEAM moving forward.
       </h1>
-      <p class="text-balance" style="font-size: 18px; opacity: 0.9; max-width: 640px; margin: 0 auto 28px;">
+      <p class="text-balance" style="font-size: 18px; opacity: 0.9; max-width: 640px; margin: 0 auto;">
         Sponsorship powers our working groups, security advisories, and the events the community runs on.
       </p>
-      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px;">
-        <a class="btn btn-blue" href="#how-sponsorship-works" style="padding: 12px 24px;">
-          Become a Sponsor <span class="arrow">&rarr;</span>
-        </a>
-
-        <a class="btn btn-inverted-on-dark" href="https://members.erlef.org/join-us" style="padding: 12px 24px;">
-          Become a member <span class="arrow">&rarr;</span>
-        </a>
-      </div>
     </div>
   </section>
 
-  <!-- 2. PROJECTS ========================================================= -->
-  <section class="projects-section">
-    <div class="container">
-      <div class="text-eyebrow">What sponsorship makes possible</div>
-      <h2 style="font-size: 30px; color: #1f2c34; margin-bottom: 24px;">
-        The work your support funds.
-      </h2>
-
-      <div class="row" style="row-gap: 16px;">
-        {% for project in site.data.projects.projects limit: 6 %}
-          <div class="col-12 col-sm-6 col-md-4 mb-3">
-            <div class="project-card">
-              <div class="text-eyebrow text-eyebrow--amber" style="margin-bottom: 6px;">
-                {% if project.wg_url %}<a class="project-card__wg-link" href="{{ project.wg_url }}" style="color: inherit; text-decoration: none;">{{ project.working_group }}</a>{% else %}{{ project.working_group }}{% endif %}
-              </div>
-              <h3 class="project-card__title">
-                <a href="{{ project.url }}">{{ project.name }} <span class="arrow">&rarr;</span></a>
-              </h3>
-              <p class="project-card__summary">{{ project.summary }}</p>
-            </div>
-          </div>
-        {% endfor %}
-      </div>
-
-      <div style="text-align: center; margin-top: 32px;">
-        <a class="btn btn-outline-blue" href="{{ '/projects/' | relative_url }}" style="padding: 12px 24px;">
-          See all sponsored projects <span class="arrow">&rarr;</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. HOW SECTION (Company / Individual split) ====================== -->
+  <!-- 2. HOW SECTION (Company / Individual split) ====================== -->
   <section class="how-section">
     <div class="container">
       <div class="row audience-split" style="row-gap: 28px;">
@@ -98,7 +57,7 @@ layout: default
     </div>
   </section>
 
-  <!-- 4. TIERS =========================================================== -->
+  <!-- 3. TIERS =========================================================== -->
   <section id="how-sponsorship-works" class="tiers-section">
     <div class="container">
       <div class="text-eyebrow">How sponsorship works</div>
@@ -114,33 +73,37 @@ layout: default
           <table class="tier-table">
             <thead>
               <tr>
-                <th style="text-align: left;">Annual revenue</th>
+                <th style="text-align: left;">Company size</th>
                 <th style="text-align: right;">Annual contribution</th>
               </tr>
             </thead>
             <tbody>
               <tr>
+                <td>Enterprise</td>
+                <td style="text-align: right;"><a href="mailto:sponsorship@erlef.org" class="tier-table__amount" style="text-decoration: none;">$64,000<span class="tier-table__amount-note">and contact us</span></a></td>
+              </tr>
+              <tr>
+                <td>Large</td>
+                <td style="text-align: right;"><a href="https://www.every.org/erlang-ecosystem-foundation-inc" class="tier-table__amount" style="text-decoration: none;">$24,000<span class="tier-table__amount-note">or more <span class="arrow">&rarr;</span></span></a></td>
+              </tr>
+              <tr>
+                <td>Medium</td>
+                <td style="text-align: right;"><a href="https://www.every.org/erlang-ecosystem-foundation-inc" class="tier-table__amount" style="text-decoration: none;">$5,000<span class="tier-table__amount-note">or more <span class="arrow">&rarr;</span></span></a></td>
+              </tr>
+              <tr>
+                <td>Small</td>
+                <td style="text-align: right;"><a href="https://www.every.org/erlang-ecosystem-foundation-inc" class="tier-table__amount" style="text-decoration: none;">$2,000<span class="tier-table__amount-note">or more <span class="arrow">&rarr;</span></span></a></td>
+              </tr>
+              <tr>
                 <td>Individual</td>
                 <td style="text-align: right;"><a href="https://www.every.org/erlang-ecosystem-foundation-inc" class="tier-table__amount" style="text-decoration: none;">Your impact <span class="arrow">&rarr;</span></a></td>
               </tr>
-              <tr>
-                <td>Under $1,000,000</td>
-                <td style="text-align: right;"><a href="https://www.every.org/erlang-ecosystem-foundation-inc" class="tier-table__amount" style="text-decoration: none;">$4,000<span class="tier-table__amount-note">or more <span class="arrow">&rarr;</span></span></a></td>
-              </tr>
-              <tr>
-                <td>$1,000,000 &ndash; $5,000,000</td>
-                <td style="text-align: right;"><a href="https://www.every.org/erlang-ecosystem-foundation-inc" class="tier-table__amount" style="text-decoration: none;">$20,000<span class="tier-table__amount-note">or more <span class="arrow">&rarr;</span></span></a></td>
-              </tr>
-              <tr>
-                <td>$5,000,000+</td>
-                <td style="text-align: right;"><a href="https://www.every.org/erlang-ecosystem-foundation-inc" class="tier-table__amount" style="text-decoration: none;">$50,000<span class="tier-table__amount-note">or more <span class="arrow">&rarr;</span></span></a></td>
-              </tr>
-              <tr>
-                <td>Enterprise</td>
-                <td style="text-align: right;"><a href="mailto:sponsorship@erlef.org" class="tier-table__amount" style="text-decoration: none;">$100,000<span class="tier-table__amount-note">and contact us</span></a></td>
-              </tr>
             </tbody>
           </table>
+
+          <p style="font-size: 13px; color: #6b7780; line-height: 1.55; margin: 16px 0 0;">
+            Beyond the core amounts above, we also recognize <strong>Strategic</strong> and <strong>Visionary</strong> impact levels for sponsors who give well beyond their size. We'd love to explore crediting your company at that level &mdash; <a href="mailto:sponsorship@erlef.org">reach out</a>.
+          </p>
         </div>
 
         <div class="col-md-5">
@@ -167,6 +130,38 @@ layout: default
     </div>
   </section>
 
+  <!-- 4. PROJECTS ========================================================= -->
+  <section class="projects-section">
+    <div class="container">
+      <div class="text-eyebrow">What sponsorship makes possible</div>
+      <h2 style="font-size: 30px; color: #fff; margin-bottom: 24px;">
+        The work your support funds.
+      </h2>
+
+      <div class="row" style="row-gap: 16px;">
+        {% for project in site.data.projects.projects limit: 6 %}
+          <div class="col-12 col-sm-6 col-md-4 mb-3">
+            <div class="project-card">
+              <div class="text-eyebrow text-eyebrow--amber" style="margin-bottom: 6px;">
+                {% if project.wg_url %}<a class="project-card__wg-link" href="{{ project.wg_url }}" style="color: inherit; text-decoration: none;">{{ project.working_group }}</a>{% else %}{{ project.working_group }}{% endif %}
+              </div>
+              <h3 class="project-card__title">
+                <a href="{{ project.url }}">{{ project.name }} <span class="arrow">&rarr;</span></a>
+              </h3>
+              <p class="project-card__summary">{{ project.summary }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div style="text-align: center; margin-top: 32px;">
+        <a class="btn btn-inverted-on-dark" href="{{ '/projects/' | relative_url }}" style="padding: 12px 24px;">
+          See all sponsored projects <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- 5. CURRENT SPONSORS ================================================ -->
   <section class="sponsors-section">
     <div class="container">
@@ -177,19 +172,42 @@ layout: default
         Organizations that fund the foundation's work today.
       </p>
 
-      <div class="row" style="row-gap: 16px;">
-        {% for sponsor in site.data.sponsors.current_sponsors %}
-          <div class="col-6 col-md-4 col-lg-3 mb-3">
-            <a class="sponsor-tile" href="{{ sponsor.url }}" rel="noopener noreferrer" target="_blank" title="{{ sponsor.name }}" aria-label="{{ sponsor.name }}">
-              {% if sponsor.logo and sponsor.logo != "" %}
-                <img src="{{ '/assets/images/sponsors/' | append: sponsor.logo | relative_url }}" alt="{{ sponsor.name }}" title="{{ sponsor.name }}">
-              {% else %}
-                {{ sponsor.name }}
-              {% endif %}
-            </a>
-          </div>
-        {% endfor %}
-      </div>
+      {% assign visionary = site.data.sponsors.current_sponsors | where: "impact", "visionary" %}
+      {% assign strategic = site.data.sponsors.current_sponsors | where: "impact", "strategic" %}
+      {% assign standard = site.data.sponsors.current_sponsors | where_exp: "s", "s.impact == nil" %}
+
+      {% if visionary.size > 0 %}
+        <div class="text-eyebrow text-eyebrow--amber" style="margin-bottom: 10px;">Visionary impact</div>
+        <div class="row" style="row-gap: 16px; margin-bottom: 40px;">
+          {% for sponsor in visionary %}
+            <div class="col-12 col-md-6 mb-3">
+              {% include sponsor-tile.html sponsor=sponsor class="sponsor-tile--lg" %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% if strategic.size > 0 %}
+        <div class="text-eyebrow text-eyebrow--amber" style="margin-bottom: 10px;">Strategic impact</div>
+        <div class="row" style="row-gap: 16px; margin-bottom: 40px;">
+          {% for sponsor in strategic %}
+            <div class="col-6 col-md-4 mb-3">
+              {% include sponsor-tile.html sponsor=sponsor class="sponsor-tile--md" %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% if standard.size > 0 %}
+        <div class="text-eyebrow text-eyebrow--amber" style="margin-bottom: 10px;">Core impact</div>
+        <div class="row" style="row-gap: 16px;">
+          {% for sponsor in standard %}
+            <div class="col-6 col-md-4 col-lg-3 mb-3">
+              {% include sponsor-tile.html sponsor=sponsor %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
     </div>
   </section>
 
@@ -209,7 +227,11 @@ layout: default
       <div class="row" style="row-gap: 12px;">
         {% for sponsor in site.data.sponsors.founding_sponsors %}
           <div class="col-6 col-md-3 col-lg-2 mb-2">
+            {% if sponsor.page %}
+            <a class="sponsor-tile sponsor-tile--sm" href="{{ sponsor.page | relative_url }}" style="background: #fff;" title="{{ sponsor.name }}" aria-label="{{ sponsor.name }}">
+            {% else %}
             <a class="sponsor-tile sponsor-tile--sm" href="{{ sponsor.url }}" rel="noopener noreferrer" target="_blank" style="background: #fff;" title="{{ sponsor.name }}" aria-label="{{ sponsor.name }}">
+            {% endif %}
               {% if sponsor.logo and sponsor.logo != "" %}
                 <img src="{{ '/assets/images/sponsors/' | append: sponsor.logo | relative_url }}" alt="{{ sponsor.name }}" title="{{ sponsor.name }}">
               {% else %}

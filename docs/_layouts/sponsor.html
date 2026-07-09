@@ -1,0 +1,87 @@
+---
+layout: default
+---
+
+<link rel="stylesheet" href="{{ '/assets/erlef-shared.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/sponsors-page.css' | relative_url }}">
+
+<div class="erlef-page">
+
+  <!-- HERO -->
+  <section class="section-band--dark">
+    <div class="container">
+      <div class="text-eyebrow text-eyebrow--on-dark" style="margin-bottom: 16px;">Sponsor</div>
+      {% if page.logo and page.logo != "" %}
+        <div style="background: #fff; border-radius: 12px; padding: 20px 24px; display: inline-block; margin-bottom: 20px;">
+          <img src="{{ '/assets/images/sponsors/' | append: page.logo | relative_url }}" alt="{{ page.title }}" style="max-height: 56px; max-width: 240px; display: block;">
+        </div>
+      {% endif %}
+      <h1 style="font-size: 38px; line-height: 1.18; margin-bottom: 16px;">{{ page.title }}</h1>
+      {% if page.website %}
+        <a class="btn btn-blue" href="{{ page.website }}" rel="noopener noreferrer" target="_blank" style="padding: 12px 24px;">
+          Visit website <span class="arrow">&rarr;</span>
+        </a>
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- DESCRIPTION -->
+  <section class="section-band--light">
+    <div class="container">
+      <div style="max-width: 760px; font-size: 17px; color: #475560; line-height: 1.6;">
+        {{ content }}
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLES -->
+  {% if page.articles and page.articles.size > 0 %}
+  <section class="section-band--light" style="padding-top: 0;">
+    <div class="container">
+      <div class="text-eyebrow text-eyebrow--amber">In the community</div>
+      <h2 style="font-size: 26px; color: #1f2c34; margin-bottom: 20px;">Articles &amp; relationship with the EEF.</h2>
+      <ul style="list-style: none; margin: 0; padding: 0; max-width: 760px;">
+        {% for article in page.articles %}
+          <li style="margin-bottom: 12px;">
+            <a href="{{ article.url }}" rel="noopener noreferrer" target="_blank" style="font-size: 16px;">{{ article.title }} <span class="arrow">&rarr;</span></a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- PROJECTS FUNDED -->
+  {% if page.projects and page.projects.size > 0 %}
+  <section class="section-band--light" style="padding-top: 0;">
+    <div class="container">
+      <div class="text-eyebrow text-eyebrow--amber">Made possible by {{ page.title }}</div>
+      <h2 style="font-size: 26px; color: #1f2c34; margin-bottom: 20px;">Projects they've helped sponsor.</h2>
+      <ul style="list-style: none; margin: 0; padding: 0; max-width: 760px;">
+        {% for project in page.projects %}
+          <li style="margin-bottom: 12px;">
+            {% if project.url %}<a href="{{ project.url }}" style="font-size: 16px;">{{ project.name }} <span class="arrow">&rarr;</span></a>{% else %}<span style="font-size: 16px; color: #1f2c34;">{{ project.name }}</span>{% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- CLOSING CTA -->
+  <section class="section-band--dark" style="text-align: center;">
+    <div class="container">
+      <h2 style="font-size: 26px; margin-bottom: 10px;">Join {{ page.title }} in supporting the BEAM.</h2>
+      <p style="font-size: 15px; color: rgba(255, 255, 255, 0.85); margin-bottom: 22px;">
+        Every sponsor funds the working groups, security work, and grants that keep the ecosystem healthy.
+      </p>
+      <a class="btn btn-blue" href="{{ '/' | relative_url }}#how-sponsorship-works" style="padding: 12px 24px; margin-right: 8px;">
+        Become a Sponsor <span class="arrow">&rarr;</span>
+      </a>
+      <a class="btn btn-inverted-on-dark" href="https://www.every.org/erlang-ecosystem-foundation-inc" style="padding: 12px 24px;">
+        Donate
+      </a>
+    </div>
+  </section>
+
+</div>

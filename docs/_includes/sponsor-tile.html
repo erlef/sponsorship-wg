@@ -1,0 +1,18 @@
+{%- comment -%}
+  Renders one sponsor tile. Params:
+    include.sponsor — a sponsor entry from _data/sponsors.yml
+    include.class   — extra CSS classes (e.g. "sponsor-tile--lg")
+  Links internally to sponsor.page when set, otherwise out to sponsor.url.
+{%- endcomment -%}
+{% if include.sponsor.page %}
+<a class="sponsor-tile {{ include.class }}" href="{{ include.sponsor.page | relative_url }}" title="{{ include.sponsor.name }}" aria-label="{{ include.sponsor.name }}">
+{% else %}
+<a class="sponsor-tile {{ include.class }}" href="{{ include.sponsor.url }}" rel="noopener noreferrer" target="_blank" title="{{ include.sponsor.name }}" aria-label="{{ include.sponsor.name }}">
+{% endif %}
+  {% if include.sponsor.logo and include.sponsor.logo != "" %}
+    <img src="{{ '/assets/images/sponsors/' | append: include.sponsor.logo | relative_url }}" alt="{{ include.sponsor.name }}" title="{{ include.sponsor.name }}">
+  {% else %}
+    {{ include.sponsor.name }}
+  {% endif %}
+  {% if include.sponsor.note %}<span class="sponsor-tile__note">{{ include.sponsor.note }}</span>{% endif %}
+</a>

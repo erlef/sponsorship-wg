@@ -4,6 +4,14 @@
 #   name:     Display name (string, required)
 #   url:      Sponsor's website (string, required)
 #   logo:     File under /assets/images/sponsors/ (string, optional — falls back to text tile if missing)
+#   page:     Internal landing page path, e.g. /sponsors/dashbit/ (string, optional).
+#             When set, the tile links here instead of the external website.
+#             Create the page as a Markdown file under docs/sponsors/ using layout: sponsor.
+#   impact:   Impact level for the current-sponsors grid: "visionary" or "strategic"
+#             (string, optional). Visionary logos render largest, strategic medium.
+#             Omit for the standard grid.
+#   note:     Short attribution shown under the logo on the tile (string, optional) —
+#             e.g. the project their sponsorship supports. Used on impact tiers.
 
 current_sponsors:
   - name: "Aleph Cloud"
@@ -13,6 +21,7 @@ current_sponsors:
   - name: "Avassa"
     url: "https://avassa.io/"
     logo: "avassa-logo.png"
+    page: "/sponsors/avassa/"
 
   - name: "Bitcrowd"
     url: "https://bitcrowd.net/"
@@ -21,9 +30,11 @@ current_sponsors:
   - name: "DNSimple"
     url: "https://dnsimple.com/"
     logo: "dnsimple-logo.png"
+    page: "/sponsors/dnsimple/"
 
   - name: "Dashbit"
     url: "https://dashbit.co/"
+    impact: "visionary"
     logo: "dashbit-logo.png"
 
   - name: "Daylite"
@@ -33,6 +44,7 @@ current_sponsors:
   - name: "EMQX"
     url: "https://www.emqx.com/"
     logo: "emq-logo.png"
+    page: "/sponsors/emqx/"
 
   - name: "Enki multimedia"
     url: "https://enkim.eu/"
@@ -41,14 +53,17 @@ current_sponsors:
   - name: "Ericsson"
     url: "https://www.ericsson.com/"
     logo: "ericsson-logo.png"
+    impact: "visionary"
 
   - name: "Erlang Solutions"
     url: "https://www.erlang-solutions.com/"
     logo: "esl-logo.png"
+    page: "/sponsors/erlang-solutions/"
 
   - name: "Herrmann Ultraschall"
     url: "https://www.herrmannultraschall.com/"
     logo: "herrmann-ultraschall.png"
+    impact: "visionary"
 
   - name: "Leapsight"
     url: "https://leapsight.com/"
@@ -69,14 +84,17 @@ current_sponsors:
   - name: "Shiguredo"
     url: "https://shiguredo.jp/"
     logo: "shiguredo-logo.svg"
+    page: "/sponsors/shiguredo/"
 
   - name: "TI Tokyo"
     url: "https://ti-tokyo.co.uk/"
     logo: "tiot-logo.png"
+    page: "/sponsors/ti-tokyo/"
 
   - name: "Wyeworks"
     url: "https://www.wyeworks.com/"
     logo: "wyeworks-logo.png"
+    page: "/sponsors/wyeworks/"
 
   - name: "oTolo Networks"
     url: "https://otolonetworks.com/"

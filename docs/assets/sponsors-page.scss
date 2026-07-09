@@ -28,7 +28,7 @@ $font-mono: 'B612 Mono', monospace;
 .erlef-page .hero {
   background: $brand-dark;
   color: #fff;
-  padding: 88px 0 96px;
+  padding: 88px 0 36px;
 }
 
 // ════════════════════════════════════════════════════════════════════════
@@ -36,7 +36,7 @@ $font-mono: 'B612 Mono', monospace;
 // ════════════════════════════════════════════════════════════════════════
 
 .erlef-page .projects-section {
-  background: #fff;
+  background: $brand-dark;
   padding: 80px 0 72px;
 }
 
@@ -92,7 +92,7 @@ $font-mono: 'B612 Mono', monospace;
 .erlef-page .how-section {
   background: $brand-dark;
   color: #fff;
-  padding: 80px 0 72px;
+  padding: 40px 0 72px;
   position: relative;
   overflow: hidden;
 }
@@ -266,6 +266,29 @@ $font-mono: 'B612 Mono', monospace;
   padding: 14px;
   font-size: 13px;
   border-radius: 6px;
+}
+
+// Larger variants for Visionary / Strategic impact tiers.
+.erlef-page .sponsor-tile--lg {
+  height: 200px;
+  padding: 36px;
+}
+.erlef-page .sponsor-tile--md {
+  height: 160px;
+  padding: 28px;
+}
+
+// Tiles carrying a project attribution stack the logo over the note.
+.erlef-page .sponsor-tile:has(.sponsor-tile__note) {
+  flex-direction: column;
+  gap: 14px;
+}
+.erlef-page .sponsor-tile:has(.sponsor-tile__note) img { max-height: 60%; }
+.erlef-page .sponsor-tile__note {
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b7780;
+  line-height: 1.4;
 }
 
 // ════════════════════════════════════════════════════════════════════════

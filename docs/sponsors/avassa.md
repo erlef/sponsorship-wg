@@ -1,0 +1,32 @@
+---
+layout: sponsor
+permalink: /sponsors/avassa/
+title: Avassa
+website: https://avassa.io/
+logo: avassa-logo.png
+description: Edge application management.
+
+articles:
+  - title: "Meet the sponsors: Avassa"
+    url: "https://erlef.org/blog/eef/meet-the-sponsors-avassa"
+---
+
+Avassa helps businesses to manage the lifecycle of containerized applications efficiently, securely, and at the speed of their development pipeline. The idea for the company grew out of the founders experience from their most recent company, Tail-f, where they realized that many application teams lacked the tooling to manage containerized applications across their edge computing infrastructure. With their application orchestration platform for the edge, Avassa aims to unlock the cloud operating model for distributed edge environments.
+
+## Why the BEAM
+
+The founders of Avassa have been using Erlang since the early nineties when several of them were part of the Ericsson team that first developed and eventually open sourced Erlang. With a long history of building automation and orchestration platforms using Erlang, they decided to found Avassa in 2020. They use Erlang as a core technology for their distributed control plane in their application-centric edge cloud management platform.
+
+They have had Erlang as the language of choice through several successful startups including Bluetail, Kreditor (now Klarna) and Tail-f. They recognized the profound value of Erlang first hand through applying it to a number of challenging problem domains across networking and application management.
+
+## About sponsoring the foundation
+
+The Avassa team believes that the value of and staying power of languages are created through community building and successful members of communities giving back when they can. They join the Foundation to educate the industry on Erlang-related topics and to contribute with their experience. Their commitment is such that one of Avassa’s founders, Sebastian Strollo, is on the Erlang Ecosystem Foundation’s board of directors.
+
+## A little more about Avassa
+
+They are based out of Stockholm, Sweden and its engineering team includes developers with a long background in the Erlang community including Klacke Wikström, Johan Bevemyr, Sebastian Strollo and Martin Björklund.
+
+If you are interested in being part of their team, check out their [Job board](https://careers.avassa.io/).
+
+For more information, take a look at their [website](https://avassa.io/).
