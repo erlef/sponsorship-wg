@@ -162,88 +162,10 @@ layout: default
     </div>
   </section>
 
-  <!-- 5. CURRENT SPONSORS ================================================ -->
-  <section class="sponsors-section">
-    <div class="container">
-      <h2 style="font-size: 28px; color: #1f2c34; margin-bottom: 4px;">
-        Our sponsors
-      </h2>
-      <p style="font-size: 14px; color: #475560; margin-bottom: 22px;">
-        Organizations that fund the foundation's work today.
-      </p>
+  {% include current-sponsors.html %}
 
-      {% assign visionary = site.data.sponsors.current_sponsors | where: "impact", "visionary" %}
-      {% assign strategic = site.data.sponsors.current_sponsors | where: "impact", "strategic" %}
-      {% assign standard = site.data.sponsors.current_sponsors | where_exp: "s", "s.impact == nil" %}
-
-      {% if visionary.size > 0 %}
-        <div class="text-eyebrow text-eyebrow--amber" style="margin-bottom: 10px;">Visionary impact</div>
-        <div class="row" style="row-gap: 16px; margin-bottom: 40px;">
-          {% for sponsor in visionary %}
-            <div class="col-12 col-md-6 mb-3">
-              {% include sponsor-tile.html sponsor=sponsor class="sponsor-tile--lg" %}
-            </div>
-          {% endfor %}
-        </div>
-      {% endif %}
-
-      {% if strategic.size > 0 %}
-        <div class="text-eyebrow text-eyebrow--amber" style="margin-bottom: 10px;">Strategic impact</div>
-        <div class="row" style="row-gap: 16px; margin-bottom: 40px;">
-          {% for sponsor in strategic %}
-            <div class="col-6 col-md-4 mb-3">
-              {% include sponsor-tile.html sponsor=sponsor class="sponsor-tile--md" %}
-            </div>
-          {% endfor %}
-        </div>
-      {% endif %}
-
-      {% if standard.size > 0 %}
-        <div class="text-eyebrow text-eyebrow--amber" style="margin-bottom: 10px;">Core impact</div>
-        <div class="row" style="row-gap: 16px;">
-          {% for sponsor in standard %}
-            <div class="col-6 col-md-4 col-lg-3 mb-3">
-              {% include sponsor-tile.html sponsor=sponsor %}
-            </div>
-          {% endfor %}
-        </div>
-      {% endif %}
-    </div>
-  </section>
-
-  <!-- 6. FOUNDING SPONSORS =============================================== -->
-  <section class="founding-section">
-    <div class="container">
-      <div style="margin-bottom: 8px;">
-        <span class="badge-founding">Founding members</span>
-      </div>
-      <h2 style="font-size: 24px; color: #1f2c34; margin-bottom: 6px;">
-        The organizations that started the foundation.
-      </h2>
-      <p style="font-size: 14px; color: #475560; margin-bottom: 20px; max-width: 720px;">
-        Chartered the Erlang Ecosystem Foundation in 2019.
-      </p>
-
-      <div class="row" style="row-gap: 12px;">
-        {% for sponsor in site.data.sponsors.founding_sponsors %}
-          <div class="col-6 col-md-3 col-lg-2 mb-2">
-            {% if sponsor.page %}
-            <a class="sponsor-tile sponsor-tile--sm" href="{{ sponsor.page | relative_url }}" style="background: #fff;" title="{{ sponsor.name }}" aria-label="{{ sponsor.name }}">
-            {% else %}
-            <a class="sponsor-tile sponsor-tile--sm" href="{{ sponsor.url }}" rel="noopener noreferrer" target="_blank" style="background: #fff;" title="{{ sponsor.name }}" aria-label="{{ sponsor.name }}">
-            {% endif %}
-              {% if sponsor.logo and sponsor.logo != "" %}
-                <img src="{{ '/assets/images/sponsors/' | append: sponsor.logo | relative_url }}" alt="{{ sponsor.name }}" title="{{ sponsor.name }}">
-              {% else %}
-                {{ sponsor.name }}
-              {% endif %}
-            </a>
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-  </section>
-
+  {% include founding-sponsors.html %}
+  
   <!-- 7+8. STATS + FAQ (shared dark-band wrapper so radial gradients can
               extend continuously across both sections) ====================== -->
   <div class="stats-faq-wrap">

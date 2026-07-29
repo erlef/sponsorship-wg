@@ -1,5 +1,4 @@
 ---
-layout: sponsor
 permalink: /sponsors/dnsimple/
 title: DNSimple
 website: https://dnsimple.com/

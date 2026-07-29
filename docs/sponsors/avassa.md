@@ -1,5 +1,4 @@
 ---
-layout: sponsor
 permalink: /sponsors/avassa/
 title: Avassa
 website: https://avassa.io/

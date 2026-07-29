@@ -1,5 +1,4 @@
 ---
-layout: sponsor
 permalink: /sponsors/wyeworks/
 title: WyeWorks
 website: https://wyeworks.com/

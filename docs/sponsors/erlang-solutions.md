@@ -1,5 +1,4 @@
 ---
-layout: sponsor
 permalink: /sponsors/erlang-solutions/
 title: Erlang Solutions
 website: https://www.erlang-solutions.com/

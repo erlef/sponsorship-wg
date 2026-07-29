@@ -15,8 +15,9 @@
 
 current_sponsors:
   - name: "Aleph Cloud"
-    url: "https://aleph.cloud/"
+    url: "https://aleph-archives.com/"
     logo: "aleph.png"
+    page: "/sponsors/aleph-archives/"
 
   - name: "Avassa"
     url: "https://avassa.io/"
@@ -26,6 +27,7 @@ current_sponsors:
   - name: "Bitcrowd"
     url: "https://bitcrowd.net/"
     logo: "bitcrowd-logo.png"
+    page: "/sponsors/bitcrowd/"
 
   - name: "DNSimple"
     url: "https://dnsimple.com/"
@@ -36,6 +38,7 @@ current_sponsors:
     url: "https://dashbit.co/"
     impact: "visionary"
     logo: "dashbit-logo.png"
+    page: "/sponsors/dashbit/"
 
   - name: "Daylite"
     url: "https://www.daylite.com/"

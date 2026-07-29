@@ -1,5 +1,4 @@
 ---
-layout: sponsor
 permalink: /sponsors/emqx/
 title: EMQX
 website: https://www.emqx.com/

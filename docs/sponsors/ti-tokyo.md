@@ -1,5 +1,4 @@
 ---
-layout: sponsor
 permalink: /sponsors/ti-tokyo/
 title: TI Tokyo
 website: https://ti-tokyo.co.uk/

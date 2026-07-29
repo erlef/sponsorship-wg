@@ -1,5 +1,4 @@
 ---
-layout: sponsor
 permalink: /sponsors/shiguredo/
 title: Shiguredo
 website: https://shiguredo.jp/
