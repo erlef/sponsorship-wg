@@ -1,0 +1,18 @@
+---
+layout: null
+permalink: /current-sponsors.json
+---
+{
+  "version": 1,
+  "sponsors": [
+    {% for sponsor in site.data.sponsors.current_sponsors %}
+      {
+        "name": {{ sponsor.name | jsonify }},
+        "url": {{ sponsor.url | jsonify }},
+        "logo_url": {{ "/assets/images/sponsors/" | append: sponsor.logo | absolute_url | jsonify }},
+        "impact": {{ sponsor.impact | jsonify }},
+        "note": {{ sponsor.note | jsonify }}
+      }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}

@@ -163,7 +163,7 @@ layout: default
   </section>
 
   <!-- 5. CURRENT SPONSORS ================================================ -->
-  <section class="sponsors-section">
+  <section id="current" class="sponsors-section">
     <div class="container">
       <h2 style="font-size: 28px; color: #1f2c34; margin-bottom: 4px;">
         Our sponsors
@@ -178,7 +178,7 @@ layout: default
 
       {% if visionary.size > 0 %}
         <div class="text-eyebrow text-eyebrow--amber" style="margin-bottom: 10px;">Visionary impact</div>
-        <div class="row" style="row-gap: 16px; margin-bottom: 40px;">
+        <div class="row" data-randomize-sponsors style="row-gap: 16px; margin-bottom: 40px;">
           {% for sponsor in visionary %}
             <div class="col-12 col-md-6 mb-3">
               {% include sponsor-tile.html sponsor=sponsor class="sponsor-tile--lg" %}
@@ -189,7 +189,7 @@ layout: default
 
       {% if strategic.size > 0 %}
         <div class="text-eyebrow text-eyebrow--amber" style="margin-bottom: 10px;">Strategic impact</div>
-        <div class="row" style="row-gap: 16px; margin-bottom: 40px;">
+        <div class="row" data-randomize-sponsors style="row-gap: 16px; margin-bottom: 40px;">
           {% for sponsor in strategic %}
             <div class="col-6 col-md-4 mb-3">
               {% include sponsor-tile.html sponsor=sponsor class="sponsor-tile--md" %}
@@ -200,7 +200,7 @@ layout: default
 
       {% if standard.size > 0 %}
         <div class="text-eyebrow text-eyebrow--amber" style="margin-bottom: 10px;">Core impact</div>
-        <div class="row" style="row-gap: 16px;">
+        <div class="row" data-randomize-sponsors style="row-gap: 16px;">
           {% for sponsor in standard %}
             <div class="col-6 col-md-4 col-lg-3 mb-3">
               {% include sponsor-tile.html sponsor=sponsor %}
@@ -331,3 +331,20 @@ layout: default
   </div><!-- /.stats-faq-wrap -->
 
 </div>
+
+<script>
+  document.querySelectorAll('[data-randomize-sponsors]').forEach(function (grid) {
+    var sponsors = Array.from(grid.children);
+
+    for (var i = sponsors.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var sponsor = sponsors[i];
+      sponsors[i] = sponsors[j];
+      sponsors[j] = sponsor;
+    }
+
+    sponsors.forEach(function (sponsor) {
+      grid.appendChild(sponsor);
+    });
+  });
+</script>

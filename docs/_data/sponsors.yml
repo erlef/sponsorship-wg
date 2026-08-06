@@ -18,6 +18,10 @@ current_sponsors:
     url: "https://aleph.cloud/"
     logo: "aleph.png"
 
+  - name: "AppSignal"
+    url: "https://www.appsignal.com/"
+    logo: "appsignal.svg"
+
   - name: "Avassa"
     url: "https://avassa.io/"
     logo: "avassa-logo.png"
@@ -60,6 +64,10 @@ current_sponsors:
     logo: "esl-logo.png"
     page: "/sponsors/erlang-solutions/"
 
+  - name: "GetThru"
+    url: "https://www.getthru.io/"
+    logo: "getthru.svg"
+
   - name: "Herrmann Ultraschall"
     url: "https://www.herrmannultraschall.com/"
     logo: "herrmann-ultraschall.png"
@@ -68,6 +76,11 @@ current_sponsors:
   - name: "Leapsight"
     url: "https://leapsight.com/"
     logo: "leapsight-logo.png"
+
+  - name: "Mimiquate"
+    url: "https://www.mimiquate.com/"
+    logo: "mimiquate.svg"
+    impact: "strategic"
 
   - name: "Peer Stritzinger"
     url: "https://stritzinger.com/"
