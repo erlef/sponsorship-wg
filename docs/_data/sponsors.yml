@@ -58,6 +58,11 @@ current_sponsors:
     logo: "ericsson-logo.png"
     impact: "visionary"
 
+  - name: "Mimiquate"
+    url: "https://www.mimiquate.com"
+    logo: "mimi_logo_big.svg"
+    impact: "strategic"
+    
   - name: "Erlang Solutions"
     url: "https://www.erlang-solutions.com/"
     logo: "esl-logo.png"
