@@ -2,7 +2,7 @@
 permalink: /sponsors/shiguredo/
 title: Shiguredo
 website: https://shiguredo.jp/
-logo: shiguredo-logo.svg
+logo: shiguredo-logo.png
 description: WebRTC real-time media servers written in Erlang/OTP.
 
 articles:

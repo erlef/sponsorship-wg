@@ -1,7 +1,7 @@
 ---
 permalink: /sponsors/ti-tokyo/
 title: TI Tokyo
-website: https://ti-tokyo.co.uk/
+website: https://www.tiot.jp
 logo: tiot-logo.png
 description: Enterprise-grade Riak support and BEAM services.
 
