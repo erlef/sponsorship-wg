@@ -15,8 +15,9 @@
 
 current_sponsors:
   - name: "Aleph Cloud"
-    url: "https://aleph.cloud/"
+    url: "https://aleph-archives.com/"
     logo: "aleph.png"
+    page: "/sponsors/aleph-archives/"
 
   - name: "AppSignal"
     url: "https://www.appsignal.com/"
@@ -30,6 +31,7 @@ current_sponsors:
   - name: "Bitcrowd"
     url: "https://bitcrowd.net/"
     logo: "bitcrowd-logo.png"
+    page: "/sponsors/bitcrowd/"
 
   - name: "DNSimple"
     url: "https://dnsimple.com/"
@@ -40,9 +42,10 @@ current_sponsors:
     url: "https://dashbit.co/"
     impact: "visionary"
     logo: "dashbit-logo.png"
+    page: "/sponsors/dashbit/"
 
   - name: "Daylite"
-    url: "https://www.daylite.com/"
+    url: "https://www.daylite.app/"
     logo: "daylite-logo.png"
 
   - name: "EMQX"
@@ -51,7 +54,7 @@ current_sponsors:
     page: "/sponsors/emqx/"
 
   - name: "Enki multimedia"
-    url: "https://enkim.eu/"
+    url: "https://enki-multimedia.eu/"
     logo: "enki-logo.png"
 
   - name: "Ericsson"
@@ -87,7 +90,7 @@ current_sponsors:
     logo: "peer-logo.png"
 
   - name: "Pharos Production"
-    url: "https://pharosproduction.com/"
+    url: "https://www.pharos-avantgard.com/"
     logo: "pharos-logo.png"
 
   - name: "Plausible"
@@ -100,7 +103,7 @@ current_sponsors:
     page: "/sponsors/shiguredo/"
 
   - name: "TI Tokyo"
-    url: "https://ti-tokyo.co.uk/"
+    url: "https://www.tiot.jp/"
     logo: "tiot-logo.png"
     page: "/sponsors/ti-tokyo/"
 

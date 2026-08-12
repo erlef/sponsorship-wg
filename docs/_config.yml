@@ -1,14 +1,15 @@
-title: Erlang Ecosystem Foundation
+title: Support
 description: Help us keep the BEAM moving forward.
 url: "https://sponsor.erlef.org"
 twitter_username: TheErlef
-remote_theme: erlef/eef-jekyll-theme@v0.2.0
+remote_theme: danj3/eef-jekyll-theme@v0.3.4
 repository: erlef/sponsorship-wg
 markdown: kramdown
 plugins:
   - jekyll-remote-theme
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-seo-tag
 
 collections:
   articles:
