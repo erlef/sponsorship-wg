@@ -2,7 +2,7 @@ title: Support
 description: Help us keep the BEAM moving forward.
 url: "https://sponsor.erlef.org"
 twitter_username: TheErlef
-remote_theme: danj3/eef-jekyll-theme@v0.3.4
+remote_theme: erlef/eef-jekyll-theme@v0.3.7
 repository: erlef/sponsorship-wg
 markdown: kramdown
 plugins:
