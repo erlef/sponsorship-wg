@@ -85,6 +85,10 @@ current_sponsors:
     logo: "mimiquate.svg"
     impact: "strategic"
 
+  - name: "Oban Pro"
+    url: "https://oban.pro/"
+    logo: "oban-pro-logotype-horizontal-dark-200.svg"
+
   - name: "Peer Stritzinger"
     url: "https://stritzinger.com/"
     logo: "peer-logo.png"
