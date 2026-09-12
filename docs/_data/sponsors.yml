@@ -101,6 +101,10 @@ current_sponsors:
     url: "https://plausible.io/"
     logo: "plausible-logo.png"
 
+  - name: "Remedy+"
+    url: "https://remedymeds.com"
+    logo: "Remedy+_Logo-300.png"
+    
   - name: "Shiguredo"
     url: "https://shiguredo.jp/"
     logo: "shiguredo-logo.svg"
